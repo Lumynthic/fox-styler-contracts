@@ -1,0 +1,29 @@
+{
+  "domain": {
+    "name": "FoxStylerClaims",
+    "version": "1",
+    "chainId": "46630",
+    "verifyingContract": "0xREPLACE_WITH_TESTNET_CLAIMS_CONTRACT"
+  },
+  "primaryType": "Claim",
+  "types": {
+    "Claim": [
+      { "name": "claimId", "type": "bytes32" },
+      { "name": "foxTokenId", "type": "uint256" },
+      { "name": "itemId", "type": "uint256" },
+      { "name": "amount", "type": "uint256" },
+      { "name": "sourceType", "type": "uint8" },
+      { "name": "sourceReferenceHash", "type": "bytes32" },
+      { "name": "expiresAt", "type": "uint64" }
+    ]
+  },
+  "message": {
+    "claimId": "0xREPLACE_WITH_32_BYTE_CLAIM_ID",
+    "foxTokenId": "812",
+    "itemId": "1001",
+    "amount": "1",
+    "sourceType": 1,
+    "sourceReferenceHash": "0xREPLACE_WITH_32_BYTE_SOURCE_HASH",
+    "expiresAt": "0"
+  }
+}

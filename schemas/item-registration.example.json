@@ -1,0 +1,20 @@
+[
+  {
+    "itemId": "1001",
+    "metadataURI": "ipfs://REPLACE/currentglass-bowl.json",
+    "transferPolicy": "TRANSFERABLE",
+    "claimable": true,
+    "exchangeInputEligible": true,
+    "exchangeOutputEligible": false,
+    "maxSupply": "0"
+  },
+  {
+    "itemId": "5001",
+    "metadataURI": "ipfs://REPLACE/undertide-glasswell.json",
+    "transferPolicy": "TRANSFERABLE",
+    "claimable": false,
+    "exchangeInputEligible": false,
+    "exchangeOutputEligible": true,
+    "maxSupply": "0"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://foxstyler.example/schemas/item-definition.schema.json",
+  "title": "Fox Styler On-chain Item Definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "itemId",
+    "metadataURI",
+    "transferPolicy",
+    "claimable",
+    "exchangeInputEligible",
+    "exchangeOutputEligible",
+    "maxSupply"
+  ],
+  "properties": {
+    "itemId": { "type": "string", "pattern": "^[0-9]+$" },
+    "metadataURI": { "type": "string" },
+    "transferPolicy": { "enum": ["TRANSFERABLE", "FOX_BOUND"] },
+    "claimable": { "type": "boolean" },
+    "exchangeInputEligible": { "type": "boolean" },
+    "exchangeOutputEligible": { "type": "boolean" },
+    "maxSupply": {
+      "type": "string",
+      "pattern": "^[0-9]+$",
+      "description": "0 means uncapped. Use decimal strings at JSON boundaries to preserve uint256 precision."
+    }
+  }
+}

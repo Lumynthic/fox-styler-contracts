@@ -1,0 +1,7 @@
+# Fox Styler Contracts v0.3 dependency pins
+# These are source/development dependency versions, not deployed addresses.
+FOUNDRY_VERSION=v1.7.1
+FORGE_STD_VERSION=v1.16.1
+OPENZEPPELIN_CONTRACTS_VERSION=v5.6.1
+ERC6551_REFERENCE_VERSION=v0.3.1
+SOLC_VERSION=0.8.24

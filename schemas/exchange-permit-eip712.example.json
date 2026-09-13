@@ -1,0 +1,29 @@
+{
+  "domain": {
+    "name": "FoxExchange",
+    "version": "2",
+    "chainId": "46630",
+    "verifyingContract": "0xREPLACE_WITH_TESTNET_EXCHANGE_CONTRACT"
+  },
+  "primaryType": "ExchangePermit",
+  "types": {
+    "ExchangePermit": [
+      { "name": "permitId", "type": "bytes32" },
+      { "name": "expectedOwner", "type": "address" },
+      { "name": "foxTokenId", "type": "uint256" },
+      { "name": "recipeId", "type": "uint256" },
+      { "name": "recipeHash", "type": "bytes32" },
+      { "name": "minRemainingBalance", "type": "uint256" },
+      { "name": "expiresAt", "type": "uint64" }
+    ]
+  },
+  "message": {
+    "permitId": "0xREPLACE_WITH_32_BYTE_PERMIT_ID",
+    "expectedOwner": "0xREPLACE_WITH_CURRENT_FOX_OWNER",
+    "foxTokenId": "812",
+    "recipeId": "1",
+    "recipeHash": "0xREPLACE_WITH_RECIPE_HASH",
+    "minRemainingBalance": "1",
+    "expiresAt": "0"
+  }
+}

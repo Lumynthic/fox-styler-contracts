@@ -1,0 +1,82 @@
+Fox Styler v0.3 static source checks
+======================================
+PASS  Solidity sources discovered (count=11)
+PASS  balanced braces: script/DeployCore.s.sol
+PASS  balanced parentheses: script/DeployCore.s.sol
+PASS  balanced braces: script/DeployExchange.s.sol
+PASS  balanced parentheses: script/DeployExchange.s.sol
+PASS  balanced braces: src/FoxExchange.sol
+PASS  balanced parentheses: src/FoxExchange.sol
+PASS  balanced braces: src/FoxStylerAccount.sol
+PASS  balanced parentheses: src/FoxStylerAccount.sol
+PASS  balanced braces: src/FoxStylerClaims.sol
+PASS  balanced parentheses: src/FoxStylerClaims.sol
+PASS  balanced braces: src/FoxStylerItems.sol
+PASS  balanced parentheses: src/FoxStylerItems.sol
+PASS  balanced braces: src/interfaces/IERC6551Registry.sol
+PASS  balanced parentheses: src/interfaces/IERC6551Registry.sol
+PASS  balanced braces: src/interfaces/IFoxStylerItems.sol
+PASS  balanced parentheses: src/interfaces/IFoxStylerItems.sol
+PASS  balanced braces: test/FoxStylerCore.t.sol
+PASS  balanced parentheses: test/FoxStylerCore.t.sol
+PASS  balanced braces: test/FoxStylerFuzz.t.sol
+PASS  balanced parentheses: test/FoxStylerFuzz.t.sol
+PASS  balanced braces: test/mocks/MockFox.sol
+PASS  balanced parentheses: test/mocks/MockFox.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: script/DeployExchange.s.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IERC6551Registry.sol
+PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IERC6551Registry.sol
+PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: src/FoxStylerItems.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ./mocks/MockFox.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ./mocks/MockFox.sol
+PASS  Exchange permit binds expectedOwner
+PASS  Exchange EIP-712 domain bumped to v2
+PASS  Exchange output eligibility exists
+PASS  Recipe hash is versioned
+PASS  Recipe toggle invalidates permits
+PASS  Recipe validates output eligibility
+PASS  Transfer policy locks after first mint
+PASS  Finite cap can only tighten after mint
+PASS  Zero claim ID rejected
+PASS  Zero permit ID rejected
+PASS  Claim destination not caller-controlled
+PASS  Exchange output returns to same backpack
+PASS  Fox owner required for Exchange
+PASS  Parent Fox safe-transfer guard present
+PASS  IERC721Receiver advertised
+PASS  Global claim replay state remains in Items
+PASS  TBA ERC1155 operator approvals disabled
+PASS  TBA approval introspection forced false
+PASS  ERC6551 account interface detection uses canonical ID
+PASS  Test covers blocked TBA operator approval
+PASS  Test covers normal-wallet operator approval
+PASS  Expanded adversarial + fuzz test suite (test functions=41)
+PASS  no PRIVATE_KEY literal in Solidity: script/DeployCore.s.sol
+PASS  no PRIVATE_KEY literal in Solidity: script/DeployExchange.s.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxExchange.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerAccount.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerClaims.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerItems.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IERC6551Registry.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IFoxStylerItems.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerCore.t.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerFuzz.t.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/mocks/MockFox.sol
+--------------------------------------
+PASS: 77  FAIL: 0  TOTAL: 77
+NOTE: These are structural checks only; Solidity still must be compiled and Foundry tests executed.
