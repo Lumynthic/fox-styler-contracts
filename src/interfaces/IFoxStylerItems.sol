@@ -19,13 +19,7 @@ interface IFoxStylerItems {
 
     function itemDefinition(uint256 itemId) external view returns (ItemDefinition memory);
 
-    function mintClaim(
-        address to,
-        uint256 itemId,
-        uint256 amount,
-        bytes32 claimId,
-        bytes32 provenanceHash
-    ) external;
+    function mintClaim(address to, uint256 itemId, uint256 amount, bytes32 claimId, bytes32 provenanceHash) external;
 
     function exchangeBurn(address from, uint256 itemId, uint256 amount) external;
     function exchangeMint(address to, uint256 itemId, uint256 amount) external;

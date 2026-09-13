@@ -260,9 +260,7 @@ contract FoxExchange is AccessControl, EIP712, Pausable, ReentrancyGuard {
             revert InvalidExchangeSignature();
         }
 
-        backpack = registry.createAccount(
-            accountImplementation, backpackSalt, block.chainid, foxNft, p.foxTokenId
-        );
+        backpack = registry.createAccount(accountImplementation, backpackSalt, block.chainid, foxNft, p.foxTokenId);
         if (backpack.code.length == 0) revert BackpackCreationFailed();
 
         uint256 balance = IERC1155(address(items)).balanceOf(backpack, recipe.inputItemId);

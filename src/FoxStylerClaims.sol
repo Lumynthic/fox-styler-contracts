@@ -153,24 +153,12 @@ contract FoxStylerClaims is AccessControl, EIP712, Pausable, ReentrancyGuard {
         // and always resolves to the canonical Backpack for this tokenId.
         IERC721(foxNft).ownerOf(c.foxTokenId);
 
-        backpack = registry.createAccount(
-            accountImplementation, backpackSalt, block.chainid, foxNft, c.foxTokenId
-        );
+        backpack = registry.createAccount(accountImplementation, backpackSalt, block.chainid, foxNft, c.foxTokenId);
         if (backpack.code.length == 0) revert BackpackCreationFailed();
 
-        bytes32 provenanceHash = keccak256(
-            abi.encode(c.sourceType, c.sourceReferenceHash, foxNft, c.foxTokenId)
-        );
+        bytes32 provenanceHash = keccak256(abi.encode(c.sourceType, c.sourceReferenceHash, foxNft, c.foxTokenId));
         items.mintClaim(backpack, c.itemId, c.amount, c.claimId, provenanceHash);
 
-        emit ItemClaimed(
-            c.claimId,
-            c.foxTokenId,
-            backpack,
-            c.itemId,
-            c.amount,
-            c.sourceType,
-            c.sourceReferenceHash
-        );
+        emit ItemClaimed(c.claimId, c.foxTokenId, backpack, c.itemId, c.amount, c.sourceType, c.sourceReferenceHash);
     }
 }

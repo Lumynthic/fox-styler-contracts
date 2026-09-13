@@ -61,11 +61,7 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
     event ItemURIUpdated(uint256 indexed itemId, string uri);
     event ItemFrozen(uint256 indexed itemId);
     event ClaimMinted(
-        bytes32 indexed claimId,
-        address indexed to,
-        uint256 indexed itemId,
-        uint256 amount,
-        bytes32 provenanceHash
+        bytes32 indexed claimId, address indexed to, uint256 indexed itemId, uint256 amount, bytes32 provenanceHash
     );
     event ExchangeBurn(address indexed from, uint256 indexed itemId, uint256 amount);
     event ExchangeMint(address indexed to, uint256 indexed itemId, uint256 amount);
@@ -106,13 +102,7 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
         _itemURIs[itemId] = tokenURI;
 
         emit ItemRegistered(
-            itemId,
-            tokenURI,
-            transferPolicy,
-            claimable,
-            exchangeInputEligible,
-            exchangeOutputEligible,
-            maxSupply
+            itemId, tokenURI, transferPolicy, claimable, exchangeInputEligible, exchangeOutputEligible, maxSupply
         );
         if (bytes(tokenURI).length != 0) emit URI(tokenURI, itemId);
     }
@@ -139,10 +129,7 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
             revert CapBelowCurrentSupply(itemId, currentSupply, maxSupply);
         }
 
-        if (
-            currentSupply != 0 && definition.maxSupply != 0
-                && (maxSupply == 0 || maxSupply > definition.maxSupply)
-        ) {
+        if (currentSupply != 0 && definition.maxSupply != 0 && (maxSupply == 0 || maxSupply > definition.maxSupply)) {
             revert SupplyCapCanOnlyTighten(itemId, definition.maxSupply, maxSupply);
         }
 
@@ -153,12 +140,7 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
         definition.maxSupply = maxSupply;
 
         emit ItemPolicyUpdated(
-            itemId,
-            transferPolicy,
-            claimable,
-            exchangeInputEligible,
-            exchangeOutputEligible,
-            maxSupply
+            itemId, transferPolicy, claimable, exchangeInputEligible, exchangeOutputEligible, maxSupply
         );
     }
 
@@ -177,13 +159,10 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
         emit ItemFrozen(itemId);
     }
 
-    function mintClaim(
-        address to,
-        uint256 itemId,
-        uint256 amount,
-        bytes32 claimId,
-        bytes32 provenanceHash
-    ) external onlyRole(CLAIMS_ROLE) {
+    function mintClaim(address to, uint256 itemId, uint256 amount, bytes32 claimId, bytes32 provenanceHash)
+        external
+        onlyRole(CLAIMS_ROLE)
+    {
         if (amount == 0) revert ZeroAmount();
         if (claimId == bytes32(0)) revert InvalidClaimId();
 
@@ -244,9 +223,8 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
     function _isERC6551Account(address account) internal view returns (bool) {
         if (account.code.length == 0) return false;
 
-        (bool success, bytes memory data) = account.staticcall(
-            abi.encodeCall(IERC165.supportsInterface, (_ERC6551_ACCOUNT_INTERFACE_ID))
-        );
+        (bool success, bytes memory data) =
+            account.staticcall(abi.encodeCall(IERC165.supportsInterface, (_ERC6551_ACCOUNT_INTERFACE_ID)));
         return success && data.length >= 32 && abi.decode(data, (bool));
     }
 
@@ -282,12 +260,7 @@ contract FoxStylerItems is ERC1155, ERC1155Supply, ERC1155Pausable, AccessContro
         super._update(from, to, ids, values);
     }
 
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC1155, AccessControl)
-        returns (bool)
-    {
+    function supportsInterface(bytes4 interfaceId) public view override(ERC1155, AccessControl) returns (bool) {
         return super.supportsInterface(interfaceId);
     }
 }

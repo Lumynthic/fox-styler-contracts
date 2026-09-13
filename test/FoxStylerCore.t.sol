@@ -188,9 +188,7 @@ contract FoxStylerCoreTest is Test {
     }
 
     function testBackpackAdvertisesERC721Receiver() public {
-        address backpack = registry.account(
-            address(accountImplementation), SALT, block.chainid, address(fox), FOX_A
-        );
+        address backpack = registry.account(address(accountImplementation), SALT, block.chainid, address(fox), FOX_A);
         // The undeployed address cannot delegate yet, so query the implementation directly only for this interface test.
         assertTrue(accountImplementation.supportsInterface(type(IERC721Receiver).interfaceId));
         assertTrue(backpack != address(0));
@@ -199,14 +197,8 @@ contract FoxStylerCoreTest is Test {
     function testFoxBoundItemCannotLeaveBackpack() public {
         address backpack = _claimItemToFox(FOX_A, FOX_BOUND_RELIC, 1, "bound");
 
-        bytes memory transferData = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector,
-            backpack,
-            alice,
-            FOX_BOUND_RELIC,
-            1,
-            bytes("")
-        );
+        bytes memory transferData =
+            abi.encodeWithSelector(IERC1155.safeTransferFrom.selector, backpack, alice, FOX_BOUND_RELIC, 1, bytes(""));
 
         vm.prank(alice);
         vm.expectRevert(abi.encodeWithSelector(FoxStylerItems.FoxBoundItem.selector, FOX_BOUND_RELIC));
@@ -224,14 +216,8 @@ contract FoxStylerCoreTest is Test {
         amounts[0] = 1;
         amounts[1] = 1;
 
-        bytes memory transferData = abi.encodeWithSelector(
-            IERC1155.safeBatchTransferFrom.selector,
-            backpack,
-            alice,
-            ids,
-            amounts,
-            bytes("")
-        );
+        bytes memory transferData =
+            abi.encodeWithSelector(IERC1155.safeBatchTransferFrom.selector, backpack, alice, ids, amounts, bytes(""));
 
         vm.prank(alice);
         vm.expectRevert(abi.encodeWithSelector(FoxStylerItems.FoxBoundItem.selector, FOX_BOUND_RELIC));
@@ -244,9 +230,8 @@ contract FoxStylerCoreTest is Test {
     function testTbaCannotCreatePersistentERC1155OperatorApproval() public {
         address backpack = _claimItemToFox(FOX_A, BOWL, 1, "tba-approval-block");
 
-        bytes memory approvalData = abi.encodeWithSelector(
-            IERC1155.setApprovalForAll.selector, marketplaceOperator, true
-        );
+        bytes memory approvalData =
+            abi.encodeWithSelector(IERC1155.setApprovalForAll.selector, marketplaceOperator, true);
 
         vm.prank(alice);
         vm.expectRevert(
@@ -260,9 +245,8 @@ contract FoxStylerCoreTest is Test {
     function testNormalWalletCanApproveOperatorAfterItemLeavesBackpack() public {
         address backpack = _claimItemToFox(FOX_A, BOWL, 1, "wallet-marketplace-approval");
 
-        bytes memory transferData = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector, backpack, alice, BOWL, 1, bytes("")
-        );
+        bytes memory transferData =
+            abi.encodeWithSelector(IERC1155.safeTransferFrom.selector, backpack, alice, BOWL, 1, bytes(""));
         vm.prank(alice);
         FoxStylerAccount(payable(backpack)).execute(address(items), 0, transferData, 0);
 
@@ -276,9 +260,8 @@ contract FoxStylerCoreTest is Test {
     }
 
     function testParentFoxSafeTransferIntoOwnBackpackIsRejected() public {
-        address backpack = registry.createAccount(
-            address(accountImplementation), SALT, block.chainid, address(fox), FOX_A
-        );
+        address backpack =
+            registry.createAccount(address(accountImplementation), SALT, block.chainid, address(fox), FOX_A);
 
         vm.prank(alice);
         vm.expectRevert(FoxStylerAccount.ParentFoxCannotBeReceived.selector);
@@ -289,41 +272,20 @@ contract FoxStylerCoreTest is Test {
         _claimItemToFox(FOX_A, BOWL, 1, "policy-lock");
 
         vm.expectRevert(FoxStylerItems.TransferPolicyLockedAfterMint.selector);
-        items.updateItemPolicy(
-            BOWL,
-            IFoxStylerItems.TransferPolicy.FoxBound,
-            true,
-            true,
-            false,
-            0
-        );
+        items.updateItemPolicy(BOWL, IFoxStylerItems.TransferPolicy.FoxBound, true, true, false, 0);
     }
 
     function testFiniteSupplyCapCannotIncreaseAfterMint() public {
         _claimItemToFox(FOX_A, LIMITED_ITEM, 10, "cap-lock");
 
         vm.expectRevert(FoxStylerItems.SupplyCapCanOnlyTighten.selector);
-        items.updateItemPolicy(
-            LIMITED_ITEM,
-            IFoxStylerItems.TransferPolicy.Transferable,
-            true,
-            false,
-            false,
-            120
-        );
+        items.updateItemPolicy(LIMITED_ITEM, IFoxStylerItems.TransferPolicy.Transferable, true, false, false, 120);
     }
 
     function testFiniteSupplyCapCanTightenAfterMint() public {
         _claimItemToFox(FOX_A, LIMITED_ITEM, 10, "cap-tighten");
 
-        items.updateItemPolicy(
-            LIMITED_ITEM,
-            IFoxStylerItems.TransferPolicy.Transferable,
-            true,
-            false,
-            false,
-            50
-        );
+        items.updateItemPolicy(LIMITED_ITEM, IFoxStylerItems.TransferPolicy.Transferable, true, false, false, 50);
 
         IFoxStylerItems.ItemDefinition memory definition = items.itemDefinition(LIMITED_ITEM);
         assertEq(definition.maxSupply, 50);
@@ -336,14 +298,7 @@ contract FoxStylerCoreTest is Test {
         items.setItemURI(BOWL, "ipfs://replacement.json");
 
         vm.expectRevert(abi.encodeWithSelector(FoxStylerItems.ItemIsFrozen.selector, BOWL));
-        items.updateItemPolicy(
-            BOWL,
-            IFoxStylerItems.TransferPolicy.Transferable,
-            false,
-            false,
-            false,
-            0
-        );
+        items.updateItemPolicy(BOWL, IFoxStylerItems.TransferPolicy.Transferable, false, false, false, 0);
     }
 
     function testPausedItemsBlocksClaimMint() public {
@@ -389,18 +344,11 @@ contract FoxStylerCoreTest is Test {
 
     function testCollectorCanMoveTradableItemBetweenTheirFoxes() public {
         address backpackA = _claimItemToFox(FOX_A, BOWL, 2, "claim-transfer");
-        address backpackB = registry.createAccount(
-            address(accountImplementation), SALT, block.chainid, address(fox), FOX_B
-        );
+        address backpackB =
+            registry.createAccount(address(accountImplementation), SALT, block.chainid, address(fox), FOX_B);
 
-        bytes memory transferData = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector,
-            backpackA,
-            backpackB,
-            BOWL,
-            1,
-            bytes("")
-        );
+        bytes memory transferData =
+            abi.encodeWithSelector(IERC1155.safeTransferFrom.selector, backpackA, backpackB, BOWL, 1, bytes(""));
 
         vm.prank(alice);
         FoxStylerAccount(payable(backpackA)).execute(address(items), 0, transferData, 0);
@@ -418,14 +366,8 @@ contract FoxStylerCoreTest is Test {
         bytes memory sig = _signPermit(p);
 
         // User removes one copy after permit issuance. Balance is now 4; permit requires 3 + 2 = 5.
-        bytes memory transferData = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector,
-            backpack,
-            alice,
-            BOWL,
-            1,
-            bytes("")
-        );
+        bytes memory transferData =
+            abi.encodeWithSelector(IERC1155.safeTransferFrom.selector, backpack, alice, BOWL, 1, bytes(""));
         vm.prank(alice);
         FoxStylerAccount(payable(backpack)).execute(address(items), 0, transferData, 0);
 
@@ -623,12 +565,9 @@ contract FoxStylerCoreTest is Test {
         return abi.encodePacked(r, s, v);
     }
 
-    function _configureRecipe(
-        uint256 recipeId,
-        uint256 inputAmount,
-        uint256 retainedAmount,
-        uint256 outputItemId
-    ) internal {
+    function _configureRecipe(uint256 recipeId, uint256 inputAmount, uint256 retainedAmount, uint256 outputItemId)
+        internal
+    {
         exchange.configureRecipe(
             recipeId,
             FoxExchange.Recipe({
@@ -643,13 +582,11 @@ contract FoxStylerCoreTest is Test {
         );
     }
 
-    function _permit(
-        bytes32 permitId,
-        address expectedOwner,
-        uint256 foxId,
-        uint256 recipeId,
-        uint256 minRemaining
-    ) internal view returns (FoxExchange.ExchangePermit memory) {
+    function _permit(bytes32 permitId, address expectedOwner, uint256 foxId, uint256 recipeId, uint256 minRemaining)
+        internal
+        view
+        returns (FoxExchange.ExchangePermit memory)
+    {
         FoxExchange.Recipe memory recipe = exchange.getRecipe(recipeId);
         return FoxExchange.ExchangePermit({
             permitId: permitId,

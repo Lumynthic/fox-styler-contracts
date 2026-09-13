@@ -29,13 +29,7 @@ contract DeployCore is Script {
         FoxStylerAccount accountImplementation = new FoxStylerAccount();
         FoxStylerItems items = new FoxStylerItems(deployer);
         FoxStylerClaims claims = new FoxStylerClaims(
-            admin,
-            rewardSigner,
-            address(items),
-            registry,
-            address(accountImplementation),
-            foxNft,
-            BACKPACK_SALT
+            admin, rewardSigner, address(items), registry, address(accountImplementation), foxNft, BACKPACK_SALT
         );
 
         // Configure the stable item contract, then remove deployment-key admin authority.

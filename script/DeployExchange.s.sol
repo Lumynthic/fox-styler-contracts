@@ -24,15 +24,8 @@ contract DeployExchange is Script {
         require(registry != address(0), "ERC6551_REGISTRY cannot be zero");
 
         vm.startBroadcast(privateKey);
-        FoxExchange exchange = new FoxExchange(
-            admin,
-            exchangeSigner,
-            items,
-            registry,
-            accountImplementation,
-            foxNft,
-            BACKPACK_SALT
-        );
+        FoxExchange exchange =
+            new FoxExchange(admin, exchangeSigner, items, registry, accountImplementation, foxNft, BACKPACK_SALT);
         vm.stopBroadcast();
 
         console2.log("FoxExchange:", address(exchange));

@@ -92,11 +92,7 @@ contract FoxStylerAccount is IERC165, IERC1271, IERC721Receiver, IERC1155Receive
         return IERC721Receiver.onERC721Received.selector;
     }
 
-    function onERC1155Received(address, address, uint256, uint256, bytes calldata)
-        external
-        pure
-        returns (bytes4)
-    {
+    function onERC1155Received(address, address, uint256, uint256, bytes calldata) external pure returns (bytes4) {
         return IERC1155Receiver.onERC1155Received.selector;
     }
 
@@ -109,11 +105,8 @@ contract FoxStylerAccount is IERC165, IERC1271, IERC721Receiver, IERC1155Receive
     }
 
     function supportsInterface(bytes4 interfaceId) external pure returns (bool) {
-        return interfaceId == type(IERC165).interfaceId
-            || interfaceId == type(IERC1271).interfaceId
-            || interfaceId == type(IERC721Receiver).interfaceId
-            || interfaceId == type(IERC1155Receiver).interfaceId
-            || interfaceId == _ERC6551_ACCOUNT_INTERFACE_ID
-            || interfaceId == _ERC6551_EXECUTABLE_INTERFACE_ID;
+        return interfaceId == type(IERC165).interfaceId || interfaceId == type(IERC1271).interfaceId
+            || interfaceId == type(IERC721Receiver).interfaceId || interfaceId == type(IERC1155Receiver).interfaceId
+            || interfaceId == _ERC6551_ACCOUNT_INTERFACE_ID || interfaceId == _ERC6551_EXECUTABLE_INTERFACE_ID;
     }
 }

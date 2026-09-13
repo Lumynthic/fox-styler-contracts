@@ -102,12 +102,7 @@ contract FoxStylerFuzzTest is Test {
         address backpack = _claimToFox(FOX_A, FOX_BOUND_RELIC, amount, _nonZeroId(seed, "bound"));
 
         bytes memory data = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector,
-            backpack,
-            alice,
-            FOX_BOUND_RELIC,
-            amount,
-            bytes("")
+            IERC1155.safeTransferFrom.selector, backpack, alice, FOX_BOUND_RELIC, amount, bytes("")
         );
 
         vm.prank(alice);
@@ -120,18 +115,11 @@ contract FoxStylerFuzzTest is Test {
     function testFuzzTradableItemCanMoveBetweenFoxes(uint96 rawAmount, bytes32 seed) public {
         uint256 amount = bound(uint256(rawAmount), 1, 1_000);
         address backpackA = _claimToFox(FOX_A, BOWL, amount, _nonZeroId(seed, "move"));
-        address backpackB = registry.createAccount(
-            address(accountImplementation), SALT, block.chainid, address(fox), FOX_B
-        );
+        address backpackB =
+            registry.createAccount(address(accountImplementation), SALT, block.chainid, address(fox), FOX_B);
 
-        bytes memory data = abi.encodeWithSelector(
-            IERC1155.safeTransferFrom.selector,
-            backpackA,
-            backpackB,
-            BOWL,
-            amount,
-            bytes("")
-        );
+        bytes memory data =
+            abi.encodeWithSelector(IERC1155.safeTransferFrom.selector, backpackA, backpackB, BOWL, amount, bytes(""));
 
         vm.prank(alice);
         FoxStylerAccount(payable(backpackA)).execute(address(items), 0, data, 0);
@@ -156,12 +144,9 @@ contract FoxStylerFuzzTest is Test {
         assertEq(FoxStylerAccount(payable(backpack)).owner(), newOwner);
     }
 
-    function testFuzzExchangeAlwaysRetainsSignedMinimum(
-        uint8 rawInput,
-        uint8 rawRetain,
-        uint8 rawExtra,
-        bytes32 seed
-    ) public {
+    function testFuzzExchangeAlwaysRetainsSignedMinimum(uint8 rawInput, uint8 rawRetain, uint8 rawExtra, bytes32 seed)
+        public
+    {
         uint256 inputAmount = bound(uint256(rawInput), 1, 20);
         uint256 retainedAmount = bound(uint256(rawRetain), 1, 20);
         uint256 extra = bound(uint256(rawExtra), 0, 20);
@@ -247,20 +232,11 @@ contract FoxStylerFuzzTest is Test {
         uint256 maxSupply
     ) internal {
         items.registerItem(
-            itemId,
-            "ipfs://placeholder.json",
-            policy,
-            claimable,
-            inputEligible,
-            outputEligible,
-            maxSupply
+            itemId, "ipfs://placeholder.json", policy, claimable, inputEligible, outputEligible, maxSupply
         );
     }
 
-    function _claimToFox(uint256 foxId, uint256 itemId, uint256 amount, bytes32 claimId)
-        internal
-        returns (address)
-    {
+    function _claimToFox(uint256 foxId, uint256 itemId, uint256 amount, bytes32 claimId) internal returns (address) {
         FoxStylerClaims.Claim memory c = _claim(claimId, foxId, itemId, amount);
         return claims.claim(c, _signClaim(c));
     }

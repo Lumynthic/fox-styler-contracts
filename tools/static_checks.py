@@ -41,7 +41,8 @@ def delimiter_balance(source: str, opener: str, closer: str) -> bool:
     return depth == 0
 
 
-sol_files = sorted(ROOT.rglob("*.sol"))
+# Inspect authored sources only; dependency fixtures are not project sources.
+sol_files = sorted(p for folder in (SRC, TEST_DIR, ROOT / "script") for p in folder.rglob("*.sol"))
 add("Solidity sources discovered", len(sol_files) >= 8, f"count={len(sol_files)}")
 
 for path in sol_files:
