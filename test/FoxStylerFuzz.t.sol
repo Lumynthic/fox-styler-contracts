@@ -178,8 +178,9 @@ contract FoxStylerFuzzTest is Test {
             expiresAt: uint64(block.timestamp + 10 minutes)
         });
 
+        bytes memory pSignature = _signPermit(p);
         vm.prank(alice);
-        exchange.exchange(p, _signPermit(p));
+        exchange.exchange(p, pSignature);
 
         assertEq(items.balanceOf(backpack, BOWL), retainedAmount + extra);
         assertGe(items.balanceOf(backpack, BOWL), retainedAmount);
@@ -218,9 +219,10 @@ contract FoxStylerFuzzTest is Test {
             expiresAt: uint64(block.timestamp + 10 minutes)
         });
 
+        bytes memory pSignature = _signPermit(p);
         vm.prank(alice);
-        vm.expectRevert(FoxExchange.InsufficientFoxBalance.selector);
-        exchange.exchange(p, _signPermit(p));
+        vm.expectRevert(abi.encodeWithSelector(FoxExchange.InsufficientFoxBalance.selector, amountA, inputAmount + 1));
+        exchange.exchange(p, pSignature);
     }
 
     function _registerItem(
@@ -257,13 +259,13 @@ contract FoxStylerFuzzTest is Test {
         });
     }
 
-    function _signClaim(FoxStylerClaims.Claim memory c) internal returns (bytes memory) {
+    function _signClaim(FoxStylerClaims.Claim memory c) internal view returns (bytes memory) {
         bytes32 digest = claims.hashClaim(c);
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(rewardSignerPk, digest);
         return abi.encodePacked(r, s, v);
     }
 
-    function _signPermit(FoxExchange.ExchangePermit memory p) internal returns (bytes memory) {
+    function _signPermit(FoxExchange.ExchangePermit memory p) internal view returns (bytes memory) {
         bytes32 digest = exchange.hashPermit(p);
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(exchangeSignerPk, digest);
         return abi.encodePacked(r, s, v);

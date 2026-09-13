@@ -136,8 +136,9 @@ contract FoxStylerCoreTest is Test {
 
     function testZeroClaimIdFails() public {
         FoxStylerClaims.Claim memory c = _claimStruct(bytes32(0), FOX_A, BOWL, 1);
+        bytes memory cSignature = _signClaim(c);
         vm.expectRevert(FoxStylerClaims.InvalidClaimId.selector);
-        claims.claim(c, _signClaim(c));
+        claims.claim(c, cSignature);
     }
 
     function testWrongClaimSignerFails() public {
@@ -187,7 +188,7 @@ contract FoxStylerCoreTest is Test {
         FoxStylerAccount(payable(backpack)).execute(bob, 0, "", 0);
     }
 
-    function testBackpackAdvertisesERC721Receiver() public {
+    function testBackpackAdvertisesERC721Receiver() public view {
         address backpack = registry.account(address(accountImplementation), SALT, block.chainid, address(fox), FOX_A);
         // The undeployed address cannot delegate yet, so query the implementation directly only for this interface test.
         assertTrue(accountImplementation.supportsInterface(type(IERC721Receiver).interfaceId));
@@ -271,14 +272,21 @@ contract FoxStylerCoreTest is Test {
     function testTransferPolicyCannotChangeAfterFirstMint() public {
         _claimItemToFox(FOX_A, BOWL, 1, "policy-lock");
 
-        vm.expectRevert(FoxStylerItems.TransferPolicyLockedAfterMint.selector);
+        vm.expectRevert(
+            abi.encodeWithSelector(
+                FoxStylerItems.TransferPolicyLockedAfterMint.selector,
+                BOWL,
+                IFoxStylerItems.TransferPolicy.Transferable,
+                IFoxStylerItems.TransferPolicy.FoxBound
+            )
+        );
         items.updateItemPolicy(BOWL, IFoxStylerItems.TransferPolicy.FoxBound, true, true, false, 0);
     }
 
     function testFiniteSupplyCapCannotIncreaseAfterMint() public {
         _claimItemToFox(FOX_A, LIMITED_ITEM, 10, "cap-lock");
 
-        vm.expectRevert(FoxStylerItems.SupplyCapCanOnlyTighten.selector);
+        vm.expectRevert(abi.encodeWithSelector(FoxStylerItems.SupplyCapCanOnlyTighten.selector, LIMITED_ITEM, 100, 120));
         items.updateItemPolicy(LIMITED_ITEM, IFoxStylerItems.TransferPolicy.Transferable, true, false, false, 120);
     }
 
@@ -305,16 +313,18 @@ contract FoxStylerCoreTest is Test {
         items.pause();
         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-items"), FOX_A, BOWL, 1);
 
+        bytes memory cSignature = _signClaim(c);
         vm.expectRevert();
-        claims.claim(c, _signClaim(c));
+        claims.claim(c, cSignature);
     }
 
     function testPausedClaimsBlocksClaim() public {
         claims.pause();
         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-claims"), FOX_A, BOWL, 1);
 
+        bytes memory cSignature = _signClaim(c);
         vm.expectRevert();
-        claims.claim(c, _signClaim(c));
+        claims.claim(c, cSignature);
     }
 
     function testExchangeConsumesDuplicatesAndKeepsOriginal() public {
@@ -323,8 +333,9 @@ contract FoxStylerCoreTest is Test {
 
         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-1"), alice, FOX_A, 1, 1);
 
+        bytes memory pSignature = _signPermit(p);
         vm.prank(alice);
-        exchange.exchange(p, _signPermit(p));
+        exchange.exchange(p, pSignature);
 
         assertEq(items.balanceOf(backpack, BOWL), 1);
         assertEq(items.balanceOf(backpack, EXCHANGE_BOWL), 1);
@@ -337,9 +348,10 @@ contract FoxStylerCoreTest is Test {
         _configureRecipe(2, 3, 1, EXCHANGE_BOWL);
         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-pool"), alice, FOX_A, 2, 1);
 
+        bytes memory pSignature = _signPermit(p);
         vm.prank(alice);
-        vm.expectRevert(FoxExchange.InsufficientFoxBalance.selector);
-        exchange.exchange(p, _signPermit(p));
+        vm.expectRevert(abi.encodeWithSelector(FoxExchange.InsufficientFoxBalance.selector, 2, 4));
+        exchange.exchange(p, pSignature);
     }
 
     function testCollectorCanMoveTradableItemBetweenTheirFoxes() public {
@@ -372,7 +384,7 @@ contract FoxStylerCoreTest is Test {
         FoxStylerAccount(payable(backpack)).execute(address(items), 0, transferData, 0);
 
         vm.prank(alice);
-        vm.expectRevert(FoxExchange.InsufficientFoxBalance.selector);
+        vm.expectRevert(abi.encodeWithSelector(FoxExchange.InsufficientFoxBalance.selector, 4, 5));
         exchange.exchange(p, sig);
     }
 
@@ -479,9 +491,10 @@ contract FoxStylerCoreTest is Test {
         _configureRecipe(10, 3, 2, EXCHANGE_BOWL);
         FoxExchange.ExchangePermit memory p = _permit(bytes32("min-remaining"), alice, FOX_A, 10, 1);
 
+        bytes memory pSignature = _signPermit(p);
         vm.prank(alice);
         vm.expectRevert(abi.encodeWithSelector(FoxExchange.MinimumRemainingTooLow.selector, 1, 2));
-        exchange.exchange(p, _signPermit(p));
+        exchange.exchange(p, pSignature);
     }
 
     function testExchangeIsAtomicWhenOutputSupplyCapIsReached() public {
@@ -490,14 +503,16 @@ contract FoxStylerCoreTest is Test {
         _configureRecipe(11, 3, 1, CAPPED_EXCHANGE_BOWL);
 
         FoxExchange.ExchangePermit memory first = _permit(bytes32("cap-first"), alice, FOX_A, 11, 1);
+        bytes memory firstSignature = _signPermit(first);
         vm.prank(alice);
-        exchange.exchange(first, _signPermit(first));
+        exchange.exchange(first, firstSignature);
         assertEq(items.balanceOf(backpackA, CAPPED_EXCHANGE_BOWL), 1);
 
         FoxExchange.ExchangePermit memory second = _permit(bytes32("cap-second"), alice, FOX_B, 11, 1);
+        bytes memory secondSignature = _signPermit(second);
         vm.prank(alice);
-        vm.expectRevert(FoxStylerItems.SupplyCapExceeded.selector);
-        exchange.exchange(second, _signPermit(second));
+        vm.expectRevert(abi.encodeWithSelector(FoxStylerItems.SupplyCapExceeded.selector, CAPPED_EXCHANGE_BOWL, 1, 2));
+        exchange.exchange(second, secondSignature);
 
         // Burn must also roll back when output mint fails.
         assertEq(items.balanceOf(backpackB, BOWL), 4);
@@ -559,7 +574,7 @@ contract FoxStylerCoreTest is Test {
         });
     }
 
-    function _signClaim(FoxStylerClaims.Claim memory c) internal returns (bytes memory) {
+    function _signClaim(FoxStylerClaims.Claim memory c) internal view returns (bytes memory) {
         bytes32 digest = claims.hashClaim(c);
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(rewardSignerPk, digest);
         return abi.encodePacked(r, s, v);
@@ -587,7 +602,6 @@ contract FoxStylerCoreTest is Test {
         view
         returns (FoxExchange.ExchangePermit memory)
     {
-        FoxExchange.Recipe memory recipe = exchange.getRecipe(recipeId);
         return FoxExchange.ExchangePermit({
             permitId: permitId,
             expectedOwner: expectedOwner,
@@ -599,7 +613,7 @@ contract FoxStylerCoreTest is Test {
         });
     }
 
-    function _signPermit(FoxExchange.ExchangePermit memory p) internal returns (bytes memory) {
+    function _signPermit(FoxExchange.ExchangePermit memory p) internal view returns (bytes memory) {
         bytes32 digest = exchange.hashPermit(p);
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(exchangeSignerPk, digest);
         return abi.encodePacked(r, s, v);
