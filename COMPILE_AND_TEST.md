@@ -1,4 +1,4 @@
-# Fox Styler Contracts v0.3 — Compile & Test Gate
+# Fox Styler Contracts v0.4 — Compile & Test Gate
 
 This is the next hard gate before Robinhood testnet. Do **not** deploy to mainnet from this package merely because the static checks pass.
 

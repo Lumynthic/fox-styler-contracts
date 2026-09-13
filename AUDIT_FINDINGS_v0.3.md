@@ -1,3 +1,5 @@
+> Historical v0.3 record. Current executed build/test status is in VALIDATION_v0.4.md.
+
 # Fox Styler v0.3 — Internal Security Review Addendum
 
 Status: **internal pre-compile review; not an independent audit.**

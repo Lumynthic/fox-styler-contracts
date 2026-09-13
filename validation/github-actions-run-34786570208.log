@@ -1,0 +1,765 @@
+﻿2026-09-13T22:21:58.2091391Z Current runner version: '2.337.0'
+2026-09-13T22:21:58.2115373Z ##[group]Runner Image Provisioner
+2026-09-13T22:21:58.2116256Z Hosted Compute Agent
+2026-09-13T22:21:58.2116963Z Version: 20260828.587
+2026-09-13T22:21:58.2117671Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-13T22:21:58.2118746Z Build Date: 2026-08-28T16:44:25Z
+2026-09-13T22:21:58.2119446Z Worker ID: {4b308ee5-c113-4696-8e42-aa290ac311fe}
+2026-09-13T22:21:58.2120158Z Azure Region: westus3
+2026-09-13T22:21:58.2120805Z ##[endgroup]
+2026-09-13T22:21:58.2122490Z ##[group]Operating System
+2026-09-13T22:21:58.2123205Z Ubuntu
+2026-09-13T22:21:58.2123759Z 24.04.5
+2026-09-13T22:21:58.2124279Z LTS
+2026-09-13T22:21:58.2124850Z ##[endgroup]
+2026-09-13T22:21:58.2125447Z ##[group]Runner Image
+2026-09-13T22:21:58.2126129Z Image: ubuntu-24.04
+2026-09-13T22:21:58.2126723Z Version: 20260907.300.1
+2026-09-13T22:21:58.2128372Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-13T22:21:58.2130028Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-13T22:21:58.2131090Z ##[endgroup]
+2026-09-13T22:21:58.2132193Z ##[group]GITHUB_TOKEN Permissions
+2026-09-13T22:21:58.2134390Z Contents: read
+2026-09-13T22:21:58.2135068Z Metadata: read
+2026-09-13T22:21:58.2135640Z ##[endgroup]
+2026-09-13T22:21:58.2138444Z Secret source: Actions
+2026-09-13T22:21:58.2139440Z Cache mode: write
+2026-09-13T22:21:58.2140240Z Prepare workflow directory
+2026-09-13T22:21:58.2480449Z Prepare all required actions
+2026-09-13T22:21:58.2527334Z Getting action download info
+2026-09-13T22:21:58.5763829Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-13T22:21:58.6713113Z Download action repository 'foundry-rs/foundry-toolchain@v1.9.1' (SHA:908c540300062bd5a7e473851cdb4282204cee09)
+2026-09-13T22:21:59.5776591Z Complete job name: foundry
+2026-09-13T22:21:59.6573200Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-13T22:21:59.6582341Z ##[group]Run actions/checkout@v4
+2026-09-13T22:21:59.6583149Z with:
+2026-09-13T22:21:59.6583695Z   repository: Lumynthic/fox-styler-contracts
+2026-09-13T22:21:59.6587674Z   token: ***
+2026-09-13T22:21:59.6588374Z   ssh-strict: true
+2026-09-13T22:21:59.6588871Z   ssh-user: git
+2026-09-13T22:21:59.6589366Z   persist-credentials: true
+2026-09-13T22:21:59.6589912Z   clean: true
+2026-09-13T22:21:59.6590401Z   sparse-checkout-cone-mode: true
+2026-09-13T22:21:59.6590982Z   fetch-depth: 1
+2026-09-13T22:21:59.6591471Z   fetch-tags: false
+2026-09-13T22:21:59.6591969Z   show-progress: true
+2026-09-13T22:21:59.6592474Z   lfs: false
+2026-09-13T22:21:59.6592983Z   submodules: false
+2026-09-13T22:21:59.6593484Z   set-safe-directory: true
+2026-09-13T22:21:59.6594056Z   allow-unsafe-pr-checkout: false
+2026-09-13T22:21:59.6594921Z ##[endgroup]
+2026-09-13T22:21:59.7629987Z Syncing repository: Lumynthic/fox-styler-contracts
+2026-09-13T22:21:59.7633079Z ##[group]Getting Git version info
+2026-09-13T22:21:59.7634628Z Working directory is '/home/runner/work/fox-styler-contracts/fox-styler-contracts'
+2026-09-13T22:21:59.7636633Z [command]/usr/bin/git version
+2026-09-13T22:21:59.7684510Z git version 2.55.0
+2026-09-13T22:21:59.7706631Z ##[endgroup]
+2026-09-13T22:21:59.7722113Z Temporarily overriding HOME='/home/runner/work/_temp/196014b0-28b0-4779-85a7-a8c4dec7f833' before making global git config changes
+2026-09-13T22:21:59.7724793Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-13T22:21:59.7728789Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fox-styler-contracts/fox-styler-contracts
+2026-09-13T22:21:59.7779116Z Deleting the contents of '/home/runner/work/fox-styler-contracts/fox-styler-contracts'
+2026-09-13T22:21:59.7783747Z ##[group]Initializing the repository
+2026-09-13T22:21:59.7787691Z [command]/usr/bin/git init /home/runner/work/fox-styler-contracts/fox-styler-contracts
+2026-09-13T22:21:59.7895546Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-13T22:21:59.7897325Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-13T22:21:59.7903374Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-13T22:21:59.7905933Z hint: call:
+2026-09-13T22:21:59.7908129Z hint:
+2026-09-13T22:21:59.7909651Z hint: 	git config --global init.defaultBranch <name>
+2026-09-13T22:21:59.7910929Z hint:
+2026-09-13T22:21:59.7911991Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-13T22:21:59.7913673Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-13T22:21:59.7915062Z hint:
+2026-09-13T22:21:59.7915894Z hint: 	git branch -m <name>
+2026-09-13T22:21:59.7917038Z hint:
+2026-09-13T22:21:59.7918081Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-13T22:21:59.7920165Z Initialized empty Git repository in /home/runner/work/fox-styler-contracts/fox-styler-contracts/.git/
+2026-09-13T22:21:59.7923504Z [command]/usr/bin/git remote add origin https://github.com/Lumynthic/fox-styler-contracts
+2026-09-13T22:21:59.7961234Z ##[endgroup]
+2026-09-13T22:21:59.7962580Z ##[group]Disabling automatic garbage collection
+2026-09-13T22:21:59.7965432Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-13T22:21:59.7998769Z ##[endgroup]
+2026-09-13T22:21:59.8000066Z ##[group]Setting up auth
+2026-09-13T22:21:59.8005549Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-13T22:21:59.8046731Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-13T22:21:59.8413492Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-13T22:21:59.8455038Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-13T22:21:59.8690775Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-13T22:21:59.8727012Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-13T22:21:59.8959815Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-13T22:21:59.8999064Z ##[endgroup]
+2026-09-13T22:21:59.9000750Z ##[group]Fetching the repository
+2026-09-13T22:21:59.9010875Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +15e8d6f0661a3ce57949b612ea1a0d48418b9602:refs/remotes/origin/main
+2026-09-13T22:22:00.4130681Z From https://github.com/Lumynthic/fox-styler-contracts
+2026-09-13T22:22:00.4133201Z  * [new ref]         15e8d6f0661a3ce57949b612ea1a0d48418b9602 -> origin/main
+2026-09-13T22:22:00.4138154Z ##[endgroup]
+2026-09-13T22:22:00.4140538Z ##[group]Determining the checkout info
+2026-09-13T22:22:00.4143225Z ##[endgroup]
+2026-09-13T22:22:00.4147472Z [command]/usr/bin/git sparse-checkout disable
+2026-09-13T22:22:00.4199432Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-13T22:22:00.4232860Z ##[group]Checking out the ref
+2026-09-13T22:22:00.4236901Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-13T22:22:00.4324946Z Switched to a new branch 'main'
+2026-09-13T22:22:00.4331118Z branch 'main' set up to track 'origin/main'.
+2026-09-13T22:22:00.4338432Z ##[endgroup]
+2026-09-13T22:22:00.4384089Z [command]/usr/bin/git log -1 --format=%H
+2026-09-13T22:22:00.4418387Z 15e8d6f0661a3ce57949b612ea1a0d48418b9602
+2026-09-13T22:22:00.4773306Z ##[group]Run foundry-rs/foundry-toolchain@v1.9.1
+2026-09-13T22:22:00.4774865Z with:
+2026-09-13T22:22:00.4775826Z   version: v1.7.1
+2026-09-13T22:22:00.4776869Z   network: ethereum
+2026-09-13T22:22:00.4778172Z   cache: true
+2026-09-13T22:22:00.4779488Z   cache-key: foundry-15e8d6f0661a3ce57949b612ea1a0d48418b9602
+2026-09-13T22:22:00.4781186Z   cache-restore-keys: foundry-
+2026-09-13T22:22:00.4782370Z ##[endgroup]
+2026-09-13T22:22:00.6062155Z Installing Foundry (version: v1.7.1)
+2026-09-13T22:22:00.6066371Z Downloading foundryup installer from foundry-rs/foundryup@a27902ef04dcb43061fabf343365cb5afc95fc48...
+2026-09-13T22:22:00.6534097Z Running foundryup installer...
+2026-09-13T22:22:01.6408673Z Running: foundryup --install 1.7.1
+2026-09-13T22:22:04.3346429Z Added /home/runner/.foundry/bin to PATH
+2026-09-13T22:22:04.3347757Z Primary key: linux-foundry-chain-fork-foundry-15e8d6f0661a3ce57949b612ea1a0d48418b9602
+2026-09-13T22:22:04.3354162Z Restore keys: linux-foundry-chain-fork-foundry-
+2026-09-13T22:22:04.5216758Z Cache not found
+2026-09-13T22:22:04.5217211Z Running: forge --version
+2026-09-13T22:22:04.5272532Z forge Version: 1.7.1
+2026-09-13T22:22:04.5273080Z Commit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8
+2026-09-13T22:22:04.5273753Z Build Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)
+2026-09-13T22:22:04.5274400Z Build Profile: dist
+2026-09-13T22:22:04.5279206Z Running: cast --version
+2026-09-13T22:22:04.5334638Z cast Version: 1.7.1
+2026-09-13T22:22:04.5335282Z Commit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8
+2026-09-13T22:22:04.5336069Z Build Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)
+2026-09-13T22:22:04.5336778Z Build Profile: dist
+2026-09-13T22:22:04.5340424Z Running: anvil --version
+2026-09-13T22:22:04.5382586Z anvil Version: 1.7.1
+2026-09-13T22:22:04.5383343Z Commit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8
+2026-09-13T22:22:04.5384478Z Build Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)
+2026-09-13T22:22:04.5402820Z Build Profile: dist
+2026-09-13T22:22:04.5404572Z Running: chisel --version
+2026-09-13T22:22:04.5439288Z chisel Version: 1.7.1
+2026-09-13T22:22:04.5439651Z Commit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8
+2026-09-13T22:22:04.5440095Z Build Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)
+2026-09-13T22:22:04.5440585Z Build Profile: dist
+2026-09-13T22:22:04.5574736Z ##[group]Run ./tools/bootstrap_dependencies.sh
+2026-09-13T22:22:04.5575196Z [36;1m./tools/bootstrap_dependencies.sh[0m
+2026-09-13T22:22:04.5619214Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:04.5619517Z ##[endgroup]
+2026-09-13T22:22:04.5736816Z Installing: foundry-rs/forge-std@v1.16.1
+2026-09-13T22:22:04.5813049Z Installing forge-std in /home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/forge-std (url: https://github.com/foundry-rs/forge-std, tag: v1.16.1)
+2026-09-13T22:22:04.5824784Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/forge-std'...
+2026-09-13T22:22:05.6614769Z     Installed forge-std v1.16.1
+2026-09-13T22:22:05.6626726Z Installing: OpenZeppelin/openzeppelin-contracts@v5.6.1
+2026-09-13T22:22:05.6718219Z Installing openzeppelin-contracts in /home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/openzeppelin-contracts (url: https://github.com/OpenZeppelin/openzeppelin-contracts, tag: v5.6.1)
+2026-09-13T22:22:05.6730389Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/openzeppelin-contracts'...
+2026-09-13T22:22:09.2619788Z Submodule 'lib/erc4626-tests' (https://github.com/a16z/erc4626-tests.git) registered for path 'lib/erc4626-tests'
+2026-09-13T22:22:09.2621857Z Submodule 'lib/forge-std' (https://github.com/foundry-rs/forge-std) registered for path 'lib/forge-std'
+2026-09-13T22:22:09.2623898Z Submodule 'lib/halmos-cheatcodes' (https://github.com/a16z/halmos-cheatcodes) registered for path 'lib/halmos-cheatcodes'
+2026-09-13T22:22:09.2649853Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/openzeppelin-contracts/lib/erc4626-tests'...
+2026-09-13T22:22:09.7613131Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/openzeppelin-contracts/lib/forge-std'...
+2026-09-13T22:22:10.8065869Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/openzeppelin-contracts/lib/halmos-cheatcodes'...
+2026-09-13T22:22:11.5428905Z     Installed openzeppelin-contracts v5.6.1
+2026-09-13T22:22:11.5441188Z Installing: erc6551=erc6551/reference@v0.3.1
+2026-09-13T22:22:11.5557020Z Installing reference in /home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551 (url: https://github.com/erc6551/reference, tag: v0.3.1)
+2026-09-13T22:22:11.5565694Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551'...
+2026-09-13T22:22:12.3560377Z Submodule 'lib/forge-std' (https://github.com/foundry-rs/forge-std) registered for path 'lib/forge-std'
+2026-09-13T22:22:12.3562300Z Submodule 'lib/openzeppelin-contracts' (https://github.com/openzeppelin/openzeppelin-contracts) registered for path 'lib/openzeppelin-contracts'
+2026-09-13T22:22:12.3587643Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551/lib/forge-std'...
+2026-09-13T22:22:13.3664888Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551/lib/openzeppelin-contracts'...
+2026-09-13T22:22:16.8097431Z Submodule 'lib/ds-test' (https://github.com/dapphub/ds-test) registered for path 'lib/forge-std/lib/ds-test'
+2026-09-13T22:22:16.8124703Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551/lib/forge-std/lib/ds-test'...
+2026-09-13T22:22:17.4284090Z Submodule 'lib/forge-std' (https://github.com/foundry-rs/forge-std) registered for path 'lib/openzeppelin-contracts/lib/forge-std'
+2026-09-13T22:22:17.4315448Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551/lib/openzeppelin-contracts/lib/forge-std'...
+2026-09-13T22:22:18.6055080Z Submodule 'lib/ds-test' (https://github.com/dapphub/ds-test) registered for path 'lib/openzeppelin-contracts/lib/forge-std/lib/ds-test'
+2026-09-13T22:22:18.6081132Z Cloning into '/home/runner/work/fox-styler-contracts/fox-styler-contracts/lib/erc6551/lib/openzeppelin-contracts/lib/forge-std/lib/ds-test'...
+2026-09-13T22:22:19.2711316Z     Installed reference v0.3.1
+2026-09-13T22:22:19.2723233Z Dependencies installed.
+2026-09-13T22:22:19.2758518Z forge Version: 1.7.1
+2026-09-13T22:22:19.2759142Z Commit SHA: 4072e48705af9d93e3c0f6e29e93b5e9a40caed8
+2026-09-13T22:22:19.2759791Z Build Timestamp: 2026-05-08T07:50:55.527285345Z (1778226655)
+2026-09-13T22:22:19.2760342Z Build Profile: dist
+2026-09-13T22:22:19.2806966Z ##[group]Run python3 tools/static_checks.py
+2026-09-13T22:22:19.2807348Z [36;1mpython3 tools/static_checks.py[0m
+2026-09-13T22:22:19.2843883Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:19.2844166Z ##[endgroup]
+2026-09-13T22:22:19.3240552Z Fox Styler v0.3 static source checks
+2026-09-13T22:22:19.3241501Z ======================================
+2026-09-13T22:22:19.3242155Z PASS  Solidity sources discovered (count=11)
+2026-09-13T22:22:19.3242849Z PASS  balanced braces: script/DeployCore.s.sol
+2026-09-13T22:22:19.3243586Z PASS  balanced parentheses: script/DeployCore.s.sol
+2026-09-13T22:22:19.3244347Z PASS  balanced braces: script/DeployExchange.s.sol
+2026-09-13T22:22:19.3245023Z PASS  balanced parentheses: script/DeployExchange.s.sol
+2026-09-13T22:22:19.3245570Z PASS  balanced braces: src/FoxExchange.sol
+2026-09-13T22:22:19.3245919Z PASS  balanced parentheses: src/FoxExchange.sol
+2026-09-13T22:22:19.3246280Z PASS  balanced braces: src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3246682Z PASS  balanced parentheses: src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3247064Z PASS  balanced braces: src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3247429Z PASS  balanced parentheses: src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3248069Z PASS  balanced braces: src/FoxStylerItems.sol
+2026-09-13T22:22:19.3248654Z PASS  balanced parentheses: src/FoxStylerItems.sol
+2026-09-13T22:22:19.3249424Z PASS  balanced braces: src/interfaces/IERC6551Registry.sol
+2026-09-13T22:22:19.3249874Z PASS  balanced parentheses: src/interfaces/IERC6551Registry.sol
+2026-09-13T22:22:19.3250324Z PASS  balanced braces: src/interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3250764Z PASS  balanced parentheses: src/interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3251188Z PASS  balanced braces: test/FoxStylerCore.t.sol
+2026-09-13T22:22:19.3251564Z PASS  balanced parentheses: test/FoxStylerCore.t.sol
+2026-09-13T22:22:19.3251938Z PASS  balanced braces: test/FoxStylerFuzz.t.sol
+2026-09-13T22:22:19.3252312Z PASS  balanced parentheses: test/FoxStylerFuzz.t.sol
+2026-09-13T22:22:19.3252675Z PASS  balanced braces: test/mocks/MockFox.sol
+2026-09-13T22:22:19.3253031Z PASS  balanced parentheses: test/mocks/MockFox.sol
+2026-09-13T22:22:19.3253544Z PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3254188Z PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerItems.sol
+2026-09-13T22:22:19.3254814Z PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3255425Z PASS  local import resolves: script/DeployExchange.s.sol -> ../src/FoxExchange.sol
+2026-09-13T22:22:19.3256000Z PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IERC6551Registry.sol
+2026-09-13T22:22:19.3256567Z PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3257158Z PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IERC6551Registry.sol
+2026-09-13T22:22:19.3257756Z PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3258470Z PASS  local import resolves: src/FoxStylerItems.sol -> ./interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3259032Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3259578Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerItems.sol
+2026-09-13T22:22:19.3260119Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3260646Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxExchange.sol
+2026-09-13T22:22:19.3261220Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3261805Z PASS  local import resolves: test/FoxStylerCore.t.sol -> ./mocks/MockFox.sol
+2026-09-13T22:22:19.3262332Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3263046Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerItems.sol
+2026-09-13T22:22:19.3263589Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3264124Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxExchange.sol
+2026-09-13T22:22:19.3264702Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3265269Z PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ./mocks/MockFox.sol
+2026-09-13T22:22:19.3265687Z PASS  Exchange permit binds expectedOwner
+2026-09-13T22:22:19.3266004Z PASS  Exchange EIP-712 domain bumped to v2
+2026-09-13T22:22:19.3266306Z PASS  Exchange output eligibility exists
+2026-09-13T22:22:19.3266599Z PASS  Recipe hash is versioned
+2026-09-13T22:22:19.3266870Z PASS  Recipe toggle invalidates permits
+2026-09-13T22:22:19.3267166Z PASS  Recipe validates output eligibility
+2026-09-13T22:22:19.3267472Z PASS  Transfer policy locks after first mint
+2026-09-13T22:22:19.3267915Z PASS  Finite cap can only tighten after mint
+2026-09-13T22:22:19.3268209Z PASS  Zero claim ID rejected
+2026-09-13T22:22:19.3268460Z PASS  Zero permit ID rejected
+2026-09-13T22:22:19.3268733Z PASS  Claim destination not caller-controlled
+2026-09-13T22:22:19.3269051Z PASS  Exchange output returns to same backpack
+2026-09-13T22:22:19.3269359Z PASS  Fox owner required for Exchange
+2026-09-13T22:22:19.3269784Z PASS  Parent Fox safe-transfer guard present
+2026-09-13T22:22:19.3270080Z PASS  IERC721Receiver advertised
+2026-09-13T22:22:19.3270365Z PASS  Global claim replay state remains in Items
+2026-09-13T22:22:19.3270695Z PASS  TBA ERC1155 operator approvals disabled
+2026-09-13T22:22:19.3271002Z PASS  TBA approval introspection forced false
+2026-09-13T22:22:19.3271348Z PASS  ERC6551 account interface detection uses canonical ID
+2026-09-13T22:22:19.3271726Z PASS  Test covers blocked TBA operator approval
+2026-09-13T22:22:19.3272113Z PASS  Test covers normal-wallet operator approval
+2026-09-13T22:22:19.3272499Z PASS  Expanded adversarial + fuzz test suite (test functions=41)
+2026-09-13T22:22:19.3272932Z PASS  no PRIVATE_KEY literal in Solidity: script/DeployCore.s.sol
+2026-09-13T22:22:19.3273377Z PASS  no PRIVATE_KEY literal in Solidity: script/DeployExchange.s.sol
+2026-09-13T22:22:19.3273804Z PASS  no PRIVATE_KEY literal in Solidity: src/FoxExchange.sol
+2026-09-13T22:22:19.3274219Z PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerAccount.sol
+2026-09-13T22:22:19.3274650Z PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerClaims.sol
+2026-09-13T22:22:19.3275063Z PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerItems.sol
+2026-09-13T22:22:19.3275526Z PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IERC6551Registry.sol
+2026-09-13T22:22:19.3276149Z PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IFoxStylerItems.sol
+2026-09-13T22:22:19.3277025Z PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerCore.t.sol
+2026-09-13T22:22:19.3278015Z PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerFuzz.t.sol
+2026-09-13T22:22:19.3278864Z PASS  no PRIVATE_KEY literal in Solidity: test/mocks/MockFox.sol
+2026-09-13T22:22:19.3279597Z --------------------------------------
+2026-09-13T22:22:19.3279930Z PASS: 77  FAIL: 0  TOTAL: 77
+2026-09-13T22:22:19.3280397Z NOTE: These are structural checks only; Solidity still must be compiled and Foundry tests executed.
+2026-09-13T22:22:19.3305135Z ##[group]Run forge fmt --check
+2026-09-13T22:22:19.3305447Z [36;1mforge fmt --check[0m
+2026-09-13T22:22:19.3338241Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:19.3338513Z ##[endgroup]
+2026-09-13T22:22:19.3579840Z ##[group]Run forge build --sizes
+2026-09-13T22:22:19.3580185Z [36;1mforge build --sizes[0m
+2026-09-13T22:22:19.3616468Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:19.3616744Z ##[endgroup]
+2026-09-13T22:22:19.7167379Z Compiling 70 files with Solc 0.8.24
+2026-09-13T22:22:22.9453888Z Solc 0.8.24 finished in 3.23s
+2026-09-13T22:22:22.9588400Z Compiler run successful!
+2026-09-13T22:22:22.9590825Z 
+2026-09-13T22:22:22.9591837Z ╭------------------+------------------+-------------------+--------------------+---------------------╮
+2026-09-13T22:22:22.9592617Z | Contract         | Runtime Size (B) | Initcode Size (B) | Runtime Margin (B) | Initcode Margin (B) |
+2026-09-13T22:22:22.9593255Z +====================================================================================================+
+2026-09-13T22:22:22.9593865Z | Arrays           | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9594559Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9595110Z | Bytes            | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9595610Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9596137Z | Comparators      | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9596668Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9597489Z | ECDSA            | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9598785Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9599886Z | ERC1155Utils     | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9600839Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9601799Z | ERC6551Registry  | 551              | 580               | 24,025             | 48,572              |
+2026-09-13T22:22:22.9602728Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9603592Z | ERC721Utils      | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9604440Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9605305Z | FoxExchange      | 9,360            | 11,240            | 15,216             | 37,912              |
+2026-09-13T22:22:22.9606159Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9606699Z | FoxStylerAccount | 3,213            | 3,242             | 21,363             | 45,910              |
+2026-09-13T22:22:22.9607227Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9607734Z | FoxStylerClaims  | 6,563            | 8,381             | 18,013             | 40,771              |
+2026-09-13T22:22:22.9608616Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9609122Z | FoxStylerItems   | 10,815           | 11,569            | 13,761             | 37,583              |
+2026-09-13T22:22:22.9609620Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9610084Z | Math             | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9610548Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9611271Z | MessageHashUtils | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9611796Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9612299Z | MockFox          | 3,921            | 4,425             | 20,655             | 44,727              |
+2026-09-13T22:22:22.9612777Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9613252Z | Panic            | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9613732Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9614213Z | SafeCast         | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9614695Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9615200Z | ShortStrings     | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9615686Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9616185Z | SignatureChecker | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9616684Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9617166Z | SignedMath       | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9617647Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9618889Z | SlotDerivation   | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9619669Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9620180Z | StorageSlot      | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9620664Z |------------------+------------------+-------------------+--------------------+---------------------|
+2026-09-13T22:22:22.9621135Z | Strings          | 85               | 135               | 24,491             | 49,017              |
+2026-09-13T22:22:22.9621766Z ╰------------------+------------------+-------------------+--------------------+---------------------╯
+2026-09-13T22:22:22.9622089Z 
+2026-09-13T22:22:22.9745693Z warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+2026-09-13T22:22:22.9747092Z     ╭▸ src/FoxStylerClaims.sol:145:33
+2026-09-13T22:22:22.9747674Z     │
+2026-09-13T22:22:22.9748949Z 145 │         if (c.expiresAt != 0 && block.timestamp > c.expiresAt) revert ClaimExpired(c.expiresAt);
+2026-09-13T22:22:22.9750177Z     │                                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9750810Z     │
+2026-09-13T22:22:22.9751676Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#block-timestamp
+2026-09-13T22:22:22.9752376Z 
+2026-09-13T22:22:22.9753000Z warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+2026-09-13T22:22:22.9754119Z     ╭▸ src/FoxExchange.sol:243:33
+2026-09-13T22:22:22.9754647Z     │
+2026-09-13T22:22:22.9755592Z 243 │         if (p.expiresAt != 0 && block.timestamp > p.expiresAt) revert PermitExpired(p.expiresAt);
+2026-09-13T22:22:22.9756760Z     │                                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9757326Z     │
+2026-09-13T22:22:22.9758154Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#block-timestamp
+2026-09-13T22:22:22.9758944Z 
+2026-09-13T22:22:22.9759462Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9760790Z    ╭▸ test/FoxStylerCore.t.sol:94:55
+2026-09-13T22:22:22.9761555Z    │
+2026-09-13T22:22:22.9763102Z 94 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-1"), FOX_A, BOWL, 2);
+2026-09-13T22:22:22.9764455Z    │                                                       ━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9765246Z    │
+2026-09-13T22:22:22.9765934Z    ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9766711Z    │       
+2026-09-13T22:22:22.9767233Z    │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9769367Z    │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9770068Z    │       
+2026-09-13T22:22:22.9770419Z    │       
+2026-09-13T22:22:22.9771057Z    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9771637Z 
+2026-09-13T22:22:22.9772094Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9772822Z     ╭▸ test/FoxStylerCore.t.sol:106:55
+2026-09-13T22:22:22.9773117Z     │
+2026-09-13T22:22:22.9773597Z 106 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-replay"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9774196Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9774519Z     │
+2026-09-13T22:22:22.9774878Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9775267Z     │       
+2026-09-13T22:22:22.9775574Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9776004Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9776340Z     │       
+2026-09-13T22:22:22.9776543Z     │       
+2026-09-13T22:22:22.9776931Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9777249Z 
+2026-09-13T22:22:22.9777685Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9778470Z     ╭▸ test/FoxStylerCore.t.sol:115:55
+2026-09-13T22:22:22.9778744Z     │
+2026-09-13T22:22:22.9779202Z 115 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("global-replay"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9779778Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9780098Z     │
+2026-09-13T22:22:22.9780449Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9780836Z     │       
+2026-09-13T22:22:22.9781130Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9781551Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9781877Z     │       
+2026-09-13T22:22:22.9782078Z     │       
+2026-09-13T22:22:22.9782460Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9782827Z 
+2026-09-13T22:22:22.9783108Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9783568Z     ╭▸ test/FoxStylerCore.t.sol:145:55
+2026-09-13T22:22:22.9783847Z     │
+2026-09-13T22:22:22.9784288Z 145 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("bad-signature"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9784869Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9785195Z     │
+2026-09-13T22:22:22.9785549Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9785932Z     │       
+2026-09-13T22:22:22.9786231Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9786652Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9786984Z     │       
+2026-09-13T22:22:22.9787188Z     │       
+2026-09-13T22:22:22.9787574Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9788149Z 
+2026-09-13T22:22:22.9788376Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9788840Z     ╭▸ test/FoxStylerCore.t.sol:154:55
+2026-09-13T22:22:22.9789256Z     │
+2026-09-13T22:22:22.9789737Z 154 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("expired-claim"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9790324Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9790650Z     │
+2026-09-13T22:22:22.9791000Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9791391Z     │       
+2026-09-13T22:22:22.9793735Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9794217Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9794562Z     │       
+2026-09-13T22:22:22.9794774Z     │       
+2026-09-13T22:22:22.9795178Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9795520Z 
+2026-09-13T22:22:22.9795745Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9796326Z     ╭▸ test/FoxStylerCore.t.sol:163:55
+2026-09-13T22:22:22.9796603Z     │
+2026-09-13T22:22:22.9797069Z 163 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-after-sale"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9797662Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9798417Z     │
+2026-09-13T22:22:22.9799027Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9799710Z     │       
+2026-09-13T22:22:22.9800228Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9800931Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9801486Z     │       
+2026-09-13T22:22:22.9801828Z     │       
+2026-09-13T22:22:22.9802474Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9803226Z 
+2026-09-13T22:22:22.9803587Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9804387Z     ╭▸ test/FoxStylerCore.t.sol:314:55
+2026-09-13T22:22:22.9804826Z     │
+2026-09-13T22:22:22.9805573Z 314 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-items"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9806574Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9807104Z     │
+2026-09-13T22:22:22.9807690Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9808547Z     │       
+2026-09-13T22:22:22.9809074Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9809847Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9810410Z     │       
+2026-09-13T22:22:22.9810739Z     │       
+2026-09-13T22:22:22.9811363Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9811905Z 
+2026-09-13T22:22:22.9812322Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9836197Z     ╭▸ test/FoxStylerCore.t.sol:323:55
+2026-09-13T22:22:22.9836693Z     │
+2026-09-13T22:22:22.9837411Z 323 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-claims"), FOX_A, BOWL, 1);
+2026-09-13T22:22:22.9838488Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9839079Z     │
+2026-09-13T22:22:22.9839711Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9840394Z     │       
+2026-09-13T22:22:22.9840921Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9841658Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9842239Z     │       
+2026-09-13T22:22:22.9842588Z     │       
+2026-09-13T22:22:22.9843130Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9843479Z 
+2026-09-13T22:22:22.9843889Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9844386Z     ╭▸ test/FoxStylerCore.t.sol:334:55
+2026-09-13T22:22:22.9844672Z     │
+2026-09-13T22:22:22.9845149Z 334 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-1"), alice, FOX_A, 1, 1);
+2026-09-13T22:22:22.9845752Z     │                                                       ━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9846080Z     │
+2026-09-13T22:22:22.9846448Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9846881Z     │       
+2026-09-13T22:22:22.9847216Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9847681Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9848436Z     │       
+2026-09-13T22:22:22.9848664Z     │       
+2026-09-13T22:22:22.9849092Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9849425Z 
+2026-09-13T22:22:22.9849662Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9850138Z     ╭▸ test/FoxStylerCore.t.sol:349:55
+2026-09-13T22:22:22.9850415Z     │
+2026-09-13T22:22:22.9850897Z 349 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-pool"), alice, FOX_A, 2, 1);
+2026-09-13T22:22:22.9851492Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9851818Z     │
+2026-09-13T22:22:22.9852174Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9852561Z     │       
+2026-09-13T22:22:22.9852875Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9853313Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9853644Z     │       
+2026-09-13T22:22:22.9854026Z     │       
+2026-09-13T22:22:22.9854443Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9854774Z 
+2026-09-13T22:22:22.9855018Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9855485Z     ╭▸ test/FoxStylerCore.t.sol:377:55
+2026-09-13T22:22:22.9855766Z     │
+2026-09-13T22:22:22.9856255Z 377 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-reserved"), alice, FOX_A, 3, 2);
+2026-09-13T22:22:22.9856881Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9857217Z     │
+2026-09-13T22:22:22.9857577Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9858332Z     │       
+2026-09-13T22:22:22.9858764Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9859201Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9859554Z     │       
+2026-09-13T22:22:22.9859762Z     │       
+2026-09-13T22:22:22.9860160Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9860505Z 
+2026-09-13T22:22:22.9860734Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9861204Z     ╭▸ test/FoxStylerCore.t.sol:395:55
+2026-09-13T22:22:22.9861479Z     │
+2026-09-13T22:22:22.9861949Z 395 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("sale-permit"), alice, FOX_A, 4, 1);
+2026-09-13T22:22:22.9862544Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9862865Z     │
+2026-09-13T22:22:22.9863214Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9863599Z     │       
+2026-09-13T22:22:22.9863900Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9864325Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9864670Z     │       
+2026-09-13T22:22:22.9864883Z     │       
+2026-09-13T22:22:22.9865483Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9865817Z 
+2026-09-13T22:22:22.9866033Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9866500Z     ╭▸ test/FoxStylerCore.t.sol:410:55
+2026-09-13T22:22:22.9866772Z     │
+2026-09-13T22:22:22.9867249Z 410 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("old-owner-permit"), alice, FOX_A, 5, 1);
+2026-09-13T22:22:22.9868192Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9868555Z     │
+2026-09-13T22:22:22.9868917Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9869302Z     │       
+2026-09-13T22:22:22.9869612Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9870036Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9870556Z     │       
+2026-09-13T22:22:22.9870765Z     │       
+2026-09-13T22:22:22.9871171Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9871503Z 
+2026-09-13T22:22:22.9871729Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9872188Z     ╭▸ test/FoxStylerCore.t.sol:424:55
+2026-09-13T22:22:22.9872459Z     │
+2026-09-13T22:22:22.9872945Z 424 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("wrong-ex-signer"), alice, FOX_A, 6, 1);
+2026-09-13T22:22:22.9873560Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9873896Z     │
+2026-09-13T22:22:22.9874255Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9874642Z     │       
+2026-09-13T22:22:22.9874948Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9875388Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9875728Z     │       
+2026-09-13T22:22:22.9875940Z     │       
+2026-09-13T22:22:22.9876349Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9876674Z 
+2026-09-13T22:22:22.9876894Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9877356Z     ╭▸ test/FoxStylerCore.t.sol:437:55
+2026-09-13T22:22:22.9877639Z     │
+2026-09-13T22:22:22.9878482Z 437 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("expired-permit"), alice, FOX_A, 7, 1);
+2026-09-13T22:22:22.9879098Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9879428Z     │
+2026-09-13T22:22:22.9879783Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9880175Z     │       
+2026-09-13T22:22:22.9880483Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9880927Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9881262Z     │       
+2026-09-13T22:22:22.9881473Z     │       
+2026-09-13T22:22:22.9882027Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9882389Z 
+2026-09-13T22:22:22.9882620Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9883084Z     ╭▸ test/FoxStylerCore.t.sol:449:55
+2026-09-13T22:22:22.9883359Z     │
+2026-09-13T22:22:22.9883830Z 449 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("recipe-change"), alice, FOX_A, 8, 1);
+2026-09-13T22:22:22.9884431Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9884760Z     │
+2026-09-13T22:22:22.9885106Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9885494Z     │       
+2026-09-13T22:22:22.9885808Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9886241Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9886575Z     │       
+2026-09-13T22:22:22.9886796Z     │       
+2026-09-13T22:22:22.9887183Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9887501Z 
+2026-09-13T22:22:22.9887717Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9888665Z     ╭▸ test/FoxStylerCore.t.sol:463:55
+2026-09-13T22:22:22.9888951Z     │
+2026-09-13T22:22:22.9889437Z 463 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("toggle-recipe"), alice, FOX_A, 13, 1);
+2026-09-13T22:22:22.9890047Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9890375Z     │
+2026-09-13T22:22:22.9890728Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9891115Z     │       
+2026-09-13T22:22:22.9891582Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9892009Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9892357Z     │       
+2026-09-13T22:22:22.9892570Z     │       
+2026-09-13T22:22:22.9892970Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9893290Z 
+2026-09-13T22:22:22.9893515Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9893978Z     ╭▸ test/FoxStylerCore.t.sol:492:55
+2026-09-13T22:22:22.9894250Z     │
+2026-09-13T22:22:22.9894718Z 492 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("min-remaining"), alice, FOX_A, 10, 1);
+2026-09-13T22:22:22.9895314Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9895636Z     │
+2026-09-13T22:22:22.9895981Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9896373Z     │       
+2026-09-13T22:22:22.9896681Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9897113Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9897440Z     │       
+2026-09-13T22:22:22.9897649Z     │       
+2026-09-13T22:22:22.9898341Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9898678Z 
+2026-09-13T22:22:22.9898902Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9899364Z     ╭▸ test/FoxStylerCore.t.sol:505:59
+2026-09-13T22:22:22.9899638Z     │
+2026-09-13T22:22:22.9900114Z 505 │         FoxExchange.ExchangePermit memory first = _permit(bytes32("cap-first"), alice, FOX_A, 11, 1);
+2026-09-13T22:22:22.9900721Z     │                                                           ━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9901045Z     │
+2026-09-13T22:22:22.9901399Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9901796Z     │       
+2026-09-13T22:22:22.9902107Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9902685Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9903052Z     │       
+2026-09-13T22:22:22.9903266Z     │       
+2026-09-13T22:22:22.9903665Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9903996Z 
+2026-09-13T22:22:22.9904224Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9904686Z     ╭▸ test/FoxStylerCore.t.sol:511:60
+2026-09-13T22:22:22.9904958Z     │
+2026-09-13T22:22:22.9905444Z 511 │         FoxExchange.ExchangePermit memory second = _permit(bytes32("cap-second"), alice, FOX_B, 11, 1);
+2026-09-13T22:22:22.9906054Z     │                                                            ━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9906380Z     │
+2026-09-13T22:22:22.9906733Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9907137Z     │       
+2026-09-13T22:22:22.9907448Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9908183Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9908544Z     │       
+2026-09-13T22:22:22.9908759Z     │       
+2026-09-13T22:22:22.9909154Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9909481Z 
+2026-09-13T22:22:22.9909709Z warning[unsafe-typecast]: typecasts that can truncate values should be checked
+2026-09-13T22:22:22.9910175Z     ╭▸ test/FoxStylerCore.t.sol:525:55
+2026-09-13T22:22:22.9910449Z     │
+2026-09-13T22:22:22.9910933Z 525 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("paused-exchange"), alice, FOX_A, 12, 1);
+2026-09-13T22:22:22.9911544Z     │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+2026-09-13T22:22:22.9911879Z     │
+2026-09-13T22:22:22.9912391Z     ├ note: consider disabling this lint if you're certain the cast is safe
+2026-09-13T22:22:22.9912789Z     │       
+2026-09-13T22:22:22.9913106Z     │       // casting to 'bytes32' is safe because [explain why]
+2026-09-13T22:22:22.9913546Z     │       // forge-lint: disable-next-line(unsafe-typecast)
+2026-09-13T22:22:22.9913882Z     │       
+2026-09-13T22:22:22.9914090Z     │       
+2026-09-13T22:22:22.9914484Z     ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+2026-09-13T22:22:22.9914807Z 
+2026-09-13T22:22:22.9941912Z ##[group]Run forge test -vvv
+2026-09-13T22:22:22.9942224Z [36;1mforge test -vvv[0m
+2026-09-13T22:22:22.9978454Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:22.9978727Z ##[endgroup]
+2026-09-13T22:22:23.0712525Z No files changed, compilation skipped
+2026-09-13T22:22:23.1178272Z 
+2026-09-13T22:22:23.1198529Z Ran 34 tests for test/FoxStylerCore.t.sol:FoxStylerCoreTest
+2026-09-13T22:22:23.1199298Z [PASS] testBackpackAdvertisesERC721Receiver() (gas: 14105)
+2026-09-13T22:22:23.1200032Z [PASS] testBackpackControlMovesWithFox() (gas: 306647)
+2026-09-13T22:22:23.1200784Z [PASS] testBatchTransferContainingFoxBoundItemFails() (gas: 367297)
+2026-09-13T22:22:23.1201585Z [PASS] testClaimCreatesBackpackAndMintsToFox() (gas: 235823)
+2026-09-13T22:22:23.1202422Z [PASS] testClaimReplayFailsAcrossReplacementClaimsModule() (gas: 1752016)
+2026-09-13T22:22:23.1203255Z [PASS] testClaimReplayFailsGloballyInItems() (gas: 241716)
+2026-09-13T22:22:23.1248429Z [PASS] testCollectorCanMoveTradableItemBetweenTheirFoxes() (gas: 370002)
+2026-09-13T22:22:23.1278376Z [PASS] testDifferentFoxBalancesCannotPoolForExchange() (gas: 588271)
+2026-09-13T22:22:23.1299906Z [PASS] testDisableReenableInvalidatesOutstandingPermit() (gas: 439582)
+2026-09-13T22:22:23.1368499Z [PASS] testExchangeConsumesDuplicatesAndKeepsOriginal() (gas: 530206)
+2026-09-13T22:22:23.1398484Z [PASS] testExchangeIsAtomicWhenOutputSupplyCapIsReached() (gas: 740517)
+2026-09-13T22:22:23.1428384Z [PASS] testExchangePermitIsInvalidatedByFoxSale() (gas: 471547)
+2026-09-13T22:22:23.1488323Z [PASS] testExpiredClaimFails() (gas: 23968)
+2026-09-13T22:22:23.1489018Z [PASS] testExpiredExchangePermitFails() (gas: 426575)
+2026-09-13T22:22:23.1518395Z [PASS] testFiniteSupplyCapCanTightenAfterMint() (gas: 241442)
+2026-09-13T22:22:23.1548431Z [PASS] testFiniteSupplyCapCannotIncreaseAfterMint() (gas: 233918)
+2026-09-13T22:22:23.1578361Z [PASS] testFoxBoundItemCannotLeaveBackpack() (gas: 261974)
+2026-09-13T22:22:23.1608409Z [PASS] testFrozenItemCannotChangeURIOrPolicy() (gas: 24979)
+2026-09-13T22:22:23.1638559Z [PASS] testMinimumRemainingCannotUndercutRecipeRetention() (gas: 428752)
+2026-09-13T22:22:23.1668605Z [PASS] testNormalWalletCanApproveOperatorAfterItemLeavesBackpack() (gas: 312022)
+2026-09-13T22:22:23.1698385Z [PASS] testOldOwnerCannotUsePermitAfterSale() (gas: 471602)
+2026-09-13T22:22:23.1728582Z [PASS] testParentFoxSafeTransferIntoOwnBackpackIsRejected() (gas: 134003)
+2026-09-13T22:22:23.1736533Z [PASS] testPausedClaimsBlocksClaim() (gas: 24711)
+2026-09-13T22:22:23.1758416Z [PASS] testPausedExchangeBlocksExchange() (gas: 425067)
+2026-09-13T22:22:23.1759140Z [PASS] testPausedItemsBlocksClaimMint() (gas: 174019)
+2026-09-13T22:22:23.1760106Z [PASS] testPermitMinimumRemainingProtectsPlacedQuantityAgainstBalanceChange() (gas: 499140)
+2026-09-13T22:22:23.1761231Z [PASS] testRecipeChangeInvalidatesOutstandingPermit() (gas: 441298)
+2026-09-13T22:22:23.1762202Z [PASS] testRecipeRejectsItemNotApprovedAsExchangeOutput() (gas: 27906)
+2026-09-13T22:22:23.1788469Z [PASS] testSignedRewardStillFollowsFoxAfterSale() (gas: 274357)
+2026-09-13T22:22:23.1789429Z [PASS] testTbaCannotCreatePersistentERC1155OperatorApproval() (gas: 266980)
+2026-09-13T22:22:23.1790359Z [PASS] testTransferPolicyCannotChangeAfterFirstMint() (gas: 233534)
+2026-09-13T22:22:23.1791094Z [PASS] testWrongClaimSignerFails() (gas: 30600)
+2026-09-13T22:22:23.1791694Z [PASS] testWrongExchangeSignerFails() (gas: 437146)
+2026-09-13T22:22:23.1792295Z [PASS] testZeroClaimIdFails() (gas: 22467)
+2026-09-13T22:22:23.1793470Z Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 25.54ms (23.50ms CPU time)
+2026-09-13T22:22:23.8962348Z 
+2026-09-13T22:22:23.8962801Z Ran 7 tests for test/FoxStylerFuzz.t.sol:FoxStylerFuzzTest
+2026-09-13T22:22:23.8964121Z [PASS] testFuzzBalancesAcrossFoxesNeverPool(uint8,uint8,bytes32) (runs: 512, μ: 591361, ~: 591345)
+2026-09-13T22:22:23.8970142Z [PASS] testFuzzClaimMintsExactAmount(uint96,bytes32) (runs: 512, μ: 234552, ~: 234887)
+2026-09-13T22:22:23.8975771Z [PASS] testFuzzClaimReplayNeverMintsTwice(uint96,bytes32) (runs: 512, μ: 247284, ~: 247619)
+2026-09-13T22:22:23.8980938Z [PASS] testFuzzExchangeAlwaysRetainsSignedMinimum(uint8,uint8,uint8,bytes32) (runs: 512, μ: 534678, ~: 534668)
+2026-09-13T22:22:23.8986190Z [PASS] testFuzzFormerOwnerCannotExecuteAfterFoxTransfer(address,bytes32) (runs: 512, μ: 276891, ~: 276891)
+2026-09-13T22:22:23.8991591Z [PASS] testFuzzFoxBoundItemCannotMoveIndependently(uint96,bytes32) (runs: 512, μ: 264775, ~: 264880)
+2026-09-13T22:22:23.8996734Z [PASS] testFuzzTradableItemCanMoveBetweenFoxes(uint96,bytes32) (runs: 512, μ: 351422, ~: 351527)
+2026-09-13T22:22:23.9002630Z Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 809.81ms (3.07s CPU time)
+2026-09-13T22:22:23.9003215Z 
+2026-09-13T22:22:23.9003613Z Ran 2 test suites in 814.31ms (835.35ms CPU time): 41 tests passed, 0 failed, 0 skipped (41 total tests)
+2026-09-13T22:22:23.9119702Z ##[group]Run forge test --fuzz-runs 10000
+2026-09-13T22:22:23.9120085Z [36;1mforge test --fuzz-runs 10000[0m
+2026-09-13T22:22:23.9156640Z shell: /usr/bin/bash -e {0}
+2026-09-13T22:22:23.9156913Z ##[endgroup]
+2026-09-13T22:22:23.9887245Z No files changed, compilation skipped
+2026-09-13T22:22:24.0198195Z 
+2026-09-13T22:22:24.0218441Z Ran 34 tests for test/FoxStylerCore.t.sol:FoxStylerCoreTest
+2026-09-13T22:22:24.0219194Z [PASS] testBackpackAdvertisesERC721Receiver() (gas: 14105)
+2026-09-13T22:22:24.0248261Z [PASS] testBackpackControlMovesWithFox() (gas: 306647)
+2026-09-13T22:22:24.0278321Z [PASS] testBatchTransferContainingFoxBoundItemFails() (gas: 367297)
+2026-09-13T22:22:24.0308229Z [PASS] testClaimCreatesBackpackAndMintsToFox() (gas: 235823)
+2026-09-13T22:22:24.0338360Z [PASS] testClaimReplayFailsAcrossReplacementClaimsModule() (gas: 1752016)
+2026-09-13T22:22:24.0368390Z [PASS] testClaimReplayFailsGloballyInItems() (gas: 241716)
+2026-09-13T22:22:24.0398432Z [PASS] testCollectorCanMoveTradableItemBetweenTheirFoxes() (gas: 370002)
+2026-09-13T22:22:24.0428321Z [PASS] testDifferentFoxBalancesCannotPoolForExchange() (gas: 588271)
+2026-09-13T22:22:24.0458320Z [PASS] testDisableReenableInvalidatesOutstandingPermit() (gas: 439582)
+2026-09-13T22:22:24.0488482Z [PASS] testExchangeConsumesDuplicatesAndKeepsOriginal() (gas: 530206)
+2026-09-13T22:22:24.0518495Z [PASS] testExchangeIsAtomicWhenOutputSupplyCapIsReached() (gas: 740517)
+2026-09-13T22:22:24.0548420Z [PASS] testExchangePermitIsInvalidatedByFoxSale() (gas: 471547)
+2026-09-13T22:22:24.0578284Z [PASS] testExpiredClaimFails() (gas: 23968)
+2026-09-13T22:22:24.0608338Z [PASS] testExpiredExchangePermitFails() (gas: 426575)
+2026-09-13T22:22:24.0638408Z [PASS] testFiniteSupplyCapCanTightenAfterMint() (gas: 241442)
+2026-09-13T22:22:24.0668458Z [PASS] testFiniteSupplyCapCannotIncreaseAfterMint() (gas: 233918)
+2026-09-13T22:22:24.0703561Z [PASS] testFoxBoundItemCannotLeaveBackpack() (gas: 261974)
+2026-09-13T22:22:24.0718464Z [PASS] testFrozenItemCannotChangeURIOrPolicy() (gas: 24979)
+2026-09-13T22:22:24.0719351Z [PASS] testMinimumRemainingCannotUndercutRecipeRetention() (gas: 428752)
+2026-09-13T22:22:24.0720378Z [PASS] testNormalWalletCanApproveOperatorAfterItemLeavesBackpack() (gas: 312022)
+2026-09-13T22:22:24.0721293Z [PASS] testOldOwnerCannotUsePermitAfterSale() (gas: 471602)
+2026-09-13T22:22:24.0722148Z [PASS] testParentFoxSafeTransferIntoOwnBackpackIsRejected() (gas: 134003)
+2026-09-13T22:22:24.0722968Z [PASS] testPausedClaimsBlocksClaim() (gas: 24711)
+2026-09-13T22:22:24.0723621Z [PASS] testPausedExchangeBlocksExchange() (gas: 425067)
+2026-09-13T22:22:24.0724269Z [PASS] testPausedItemsBlocksClaimMint() (gas: 174019)
+2026-09-13T22:22:24.0725584Z [PASS] testPermitMinimumRemainingProtectsPlacedQuantityAgainstBalanceChange() (gas: 499140)
+2026-09-13T22:22:24.0726667Z [PASS] testRecipeChangeInvalidatesOutstandingPermit() (gas: 441298)
+2026-09-13T22:22:24.0727561Z [PASS] testRecipeRejectsItemNotApprovedAsExchangeOutput() (gas: 27906)
+2026-09-13T22:22:24.0728657Z [PASS] testSignedRewardStillFollowsFoxAfterSale() (gas: 274357)
+2026-09-13T22:22:24.0729565Z [PASS] testTbaCannotCreatePersistentERC1155OperatorApproval() (gas: 266980)
+2026-09-13T22:22:24.0730479Z [PASS] testTransferPolicyCannotChangeAfterFirstMint() (gas: 233534)
+2026-09-13T22:22:24.0731196Z [PASS] testWrongClaimSignerFails() (gas: 30600)
+2026-09-13T22:22:24.0731773Z [PASS] testWrongExchangeSignerFails() (gas: 437146)
+2026-09-13T22:22:24.0732356Z [PASS] testZeroClaimIdFails() (gas: 22467)
+2026-09-13T22:22:24.0733095Z Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 14.68ms (24.37ms CPU time)
+2026-09-13T22:22:37.4533198Z 
+2026-09-13T22:22:37.4554359Z Ran 7 tests for test/FoxStylerFuzz.t.sol:FoxStylerFuzzTest
+2026-09-13T22:22:37.4559865Z [PASS] testFuzzBalancesAcrossFoxesNeverPool(uint8,uint8,bytes32) (runs: 10000, μ: 591373, ~: 591345)
+2026-09-13T22:22:37.4560885Z [PASS] testFuzzClaimMintsExactAmount(uint96,bytes32) (runs: 10000, μ: 234564, ~: 234887)
+2026-09-13T22:22:37.4563720Z [PASS] testFuzzClaimReplayNeverMintsTwice(uint96,bytes32) (runs: 10000, μ: 247296, ~: 247619)
+2026-09-13T22:22:37.4565542Z [PASS] testFuzzExchangeAlwaysRetainsSignedMinimum(uint8,uint8,uint8,bytes32) (runs: 10000, μ: 534665, ~: 534668)
+2026-09-13T22:22:37.4567330Z [PASS] testFuzzFormerOwnerCannotExecuteAfterFoxTransfer(address,bytes32) (runs: 10000, μ: 276891, ~: 276891)
+2026-09-13T22:22:37.4569288Z [PASS] testFuzzFoxBoundItemCannotMoveIndependently(uint96,bytes32) (runs: 10000, μ: 264781, ~: 264880)
+2026-09-13T22:22:37.4570884Z [PASS] testFuzzTradableItemCanMoveBetweenFoxes(uint96,bytes32) (runs: 10000, μ: 351428, ~: 351527)
+2026-09-13T22:22:37.4572235Z Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 13.45s (49.96s CPU time)
+2026-09-13T22:22:37.4573006Z 
+2026-09-13T22:22:37.4573646Z Ran 2 test suites in 13.45s (13.46s CPU time): 41 tests passed, 0 failed, 0 skipped (41 total tests)
+2026-09-13T22:22:37.4699387Z Post job cleanup.
+2026-09-13T22:22:37.6289882Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/fox-styler-contracts/fox-styler-contracts --files-from manifest.txt --use-compress-program zstdmt
+2026-09-13T22:22:38.1030093Z Sent 14684 of 14684 (100.0%), 0.1 MBs/sec
+2026-09-13T22:22:38.3237034Z Cache saved with the key: linux-foundry-chain-fork-foundry-15e8d6f0661a3ce57949b612ea1a0d48418b9602
+2026-09-13T22:22:38.3376754Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-13T22:22:38.3378396Z Post job cleanup.
+2026-09-13T22:22:38.4218534Z [command]/usr/bin/git version
+2026-09-13T22:22:38.4253817Z git version 2.55.0
+2026-09-13T22:22:38.4292265Z Temporarily overriding HOME='/home/runner/work/_temp/c9dba39d-af55-447f-a580-ad3af1e4a948' before making global git config changes
+2026-09-13T22:22:38.4293602Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-13T22:22:38.4297568Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/fox-styler-contracts/fox-styler-contracts
+2026-09-13T22:22:38.4334563Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-13T22:22:38.4369918Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-13T22:22:38.4657492Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-13T22:22:38.4697078Z http.https://github.com/.extraheader
+2026-09-13T22:22:38.4715338Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-13T22:22:38.4757019Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-13T22:22:38.5109424Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-13T22:22:38.5170276Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-13T22:22:38.5618601Z Cleaning up orphan processes
+2026-09-13T22:22:38.5897150Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

@@ -1,0 +1,578 @@
+[1/6] Static project checks
+Fox Styler v0.3 static source checks
+======================================
+PASS  Solidity sources discovered (count=11)
+PASS  balanced braces: script/DeployCore.s.sol
+PASS  balanced parentheses: script/DeployCore.s.sol
+PASS  balanced braces: script/DeployExchange.s.sol
+PASS  balanced parentheses: script/DeployExchange.s.sol
+PASS  balanced braces: src/FoxExchange.sol
+PASS  balanced parentheses: src/FoxExchange.sol
+PASS  balanced braces: src/FoxStylerAccount.sol
+PASS  balanced parentheses: src/FoxStylerAccount.sol
+PASS  balanced braces: src/FoxStylerClaims.sol
+PASS  balanced parentheses: src/FoxStylerClaims.sol
+PASS  balanced braces: src/FoxStylerItems.sol
+PASS  balanced parentheses: src/FoxStylerItems.sol
+PASS  balanced braces: src/interfaces/IERC6551Registry.sol
+PASS  balanced parentheses: src/interfaces/IERC6551Registry.sol
+PASS  balanced braces: src/interfaces/IFoxStylerItems.sol
+PASS  balanced parentheses: src/interfaces/IFoxStylerItems.sol
+PASS  balanced braces: test/FoxStylerCore.t.sol
+PASS  balanced parentheses: test/FoxStylerCore.t.sol
+PASS  balanced braces: test/FoxStylerFuzz.t.sol
+PASS  balanced parentheses: test/FoxStylerFuzz.t.sol
+PASS  balanced braces: test/mocks/MockFox.sol
+PASS  balanced parentheses: test/mocks/MockFox.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: script/DeployCore.s.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: script/DeployExchange.s.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IERC6551Registry.sol
+PASS  local import resolves: src/FoxExchange.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IERC6551Registry.sol
+PASS  local import resolves: src/FoxStylerClaims.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: src/FoxStylerItems.sol -> ./interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerCore.t.sol -> ./mocks/MockFox.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerAccount.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxStylerClaims.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/FoxExchange.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ../src/interfaces/IFoxStylerItems.sol
+PASS  local import resolves: test/FoxStylerFuzz.t.sol -> ./mocks/MockFox.sol
+PASS  Exchange permit binds expectedOwner
+PASS  Exchange EIP-712 domain bumped to v2
+PASS  Exchange output eligibility exists
+PASS  Recipe hash is versioned
+PASS  Recipe toggle invalidates permits
+PASS  Recipe validates output eligibility
+PASS  Transfer policy locks after first mint
+PASS  Finite cap can only tighten after mint
+PASS  Zero claim ID rejected
+PASS  Zero permit ID rejected
+PASS  Claim destination not caller-controlled
+PASS  Exchange output returns to same backpack
+PASS  Fox owner required for Exchange
+PASS  Parent Fox safe-transfer guard present
+PASS  IERC721Receiver advertised
+PASS  Global claim replay state remains in Items
+PASS  TBA ERC1155 operator approvals disabled
+PASS  TBA approval introspection forced false
+PASS  ERC6551 account interface detection uses canonical ID
+PASS  Test covers blocked TBA operator approval
+PASS  Test covers normal-wallet operator approval
+PASS  Expanded adversarial + fuzz test suite (test functions=41)
+PASS  no PRIVATE_KEY literal in Solidity: script/DeployCore.s.sol
+PASS  no PRIVATE_KEY literal in Solidity: script/DeployExchange.s.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxExchange.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerAccount.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerClaims.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/FoxStylerItems.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IERC6551Registry.sol
+PASS  no PRIVATE_KEY literal in Solidity: src/interfaces/IFoxStylerItems.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerCore.t.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/FoxStylerFuzz.t.sol
+PASS  no PRIVATE_KEY literal in Solidity: test/mocks/MockFox.sol
+--------------------------------------
+PASS: 77  FAIL: 0  TOTAL: 77
+NOTE: These are structural checks only; Solidity still must be compiled and Foundry tests executed.
+[2/6] Solidity formatting
+[3/6] Compile + contract sizes
+Compiling 1 files with Solc 0.8.24
+Solc 0.8.24 finished in 2.17s
+Compiler run successful!
+
+╭------------------+------------------+-------------------+--------------------+---------------------╮
+| Contract         | Runtime Size (B) | Initcode Size (B) | Runtime Margin (B) | Initcode Margin (B) |
++====================================================================================================+
+| Arrays           | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| Bytes            | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| Comparators      | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| ECDSA            | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| ERC1155Utils     | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| ERC6551Registry  | 551              | 580               | 24,025             | 48,572              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| ERC721Utils      | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| FoxExchange      | 9,360            | 11,240            | 15,216             | 37,912              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| FoxStylerAccount | 3,213            | 3,242             | 21,363             | 45,910              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| FoxStylerClaims  | 6,563            | 8,381             | 18,013             | 40,771              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| FoxStylerItems   | 10,815           | 11,569            | 13,761             | 37,583              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| Math             | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| MessageHashUtils | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| MockFox          | 3,921            | 4,425             | 20,655             | 44,727              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| Panic            | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| SafeCast         | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| ShortStrings     | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| SignatureChecker | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| SignedMath       | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| SlotDerivation   | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| StorageSlot      | 85               | 135               | 24,491             | 49,017              |
+|------------------+------------------+-------------------+--------------------+---------------------|
+| Strings          | 85               | 135               | 24,491             | 49,017              |
+╰------------------+------------------+-------------------+--------------------+---------------------╯
+
+warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+    ╭▸ src/FoxStylerClaims.sol:145:33
+    │
+145 │         if (c.expiresAt != 0 && block.timestamp > c.expiresAt) revert ClaimExpired(c.expiresAt);
+    │                                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#block-timestamp
+
+warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+    ╭▸ src/FoxExchange.sol:243:33
+    │
+243 │         if (p.expiresAt != 0 && block.timestamp > p.expiresAt) revert PermitExpired(p.expiresAt);
+    │                                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#block-timestamp
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+   ╭▸ test/FoxStylerCore.t.sol:94:55
+   │
+94 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-1"), FOX_A, BOWL, 2);
+   │                                                       ━━━━━━━━━━━━━━━━━━
+   │
+   ├ note: consider disabling this lint if you're certain the cast is safe
+   │       
+   │       // casting to 'bytes32' is safe because [explain why]
+   │       // forge-lint: disable-next-line(unsafe-typecast)
+   │       
+   │       
+   ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:106:55
+    │
+106 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-replay"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:115:55
+    │
+115 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("global-replay"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:145:55
+    │
+145 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("bad-signature"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:154:55
+    │
+154 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("expired-claim"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:163:55
+    │
+163 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("claim-after-sale"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:314:55
+    │
+314 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-items"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:323:55
+    │
+323 │         FoxStylerClaims.Claim memory c = _claimStruct(bytes32("paused-claims"), FOX_A, BOWL, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:334:55
+    │
+334 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-1"), alice, FOX_A, 1, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:349:55
+    │
+349 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-pool"), alice, FOX_A, 2, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:377:55
+    │
+377 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("permit-reserved"), alice, FOX_A, 3, 2);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:395:55
+    │
+395 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("sale-permit"), alice, FOX_A, 4, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:410:55
+    │
+410 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("old-owner-permit"), alice, FOX_A, 5, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:424:55
+    │
+424 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("wrong-ex-signer"), alice, FOX_A, 6, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:437:55
+    │
+437 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("expired-permit"), alice, FOX_A, 7, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:449:55
+    │
+449 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("recipe-change"), alice, FOX_A, 8, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:463:55
+    │
+463 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("toggle-recipe"), alice, FOX_A, 13, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:492:55
+    │
+492 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("min-remaining"), alice, FOX_A, 10, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:505:59
+    │
+505 │         FoxExchange.ExchangePermit memory first = _permit(bytes32("cap-first"), alice, FOX_A, 11, 1);
+    │                                                           ━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:511:60
+    │
+511 │         FoxExchange.ExchangePermit memory second = _permit(bytes32("cap-second"), alice, FOX_B, 11, 1);
+    │                                                            ━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+warning[unsafe-typecast]: typecasts that can truncate values should be checked
+    ╭▸ test/FoxStylerCore.t.sol:525:55
+    │
+525 │         FoxExchange.ExchangePermit memory p = _permit(bytes32("paused-exchange"), alice, FOX_A, 12, 1);
+    │                                                       ━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'bytes32' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://book.getfoundry.sh/reference/forge/forge-lint#unsafe-typecast
+
+[4/6] Unit/adversarial tests
+No files changed, compilation skipped
+
+Ran 34 tests for test/FoxStylerCore.t.sol:FoxStylerCoreTest
+[PASS] testBackpackAdvertisesERC721Receiver() (gas: 14105)
+[PASS] testBackpackControlMovesWithFox() (gas: 306647)
+[PASS] testBatchTransferContainingFoxBoundItemFails() (gas: 367297)
+[PASS] testClaimCreatesBackpackAndMintsToFox() (gas: 235823)
+[PASS] testClaimReplayFailsAcrossReplacementClaimsModule() (gas: 1752016)
+[PASS] testClaimReplayFailsGloballyInItems() (gas: 241716)
+[PASS] testCollectorCanMoveTradableItemBetweenTheirFoxes() (gas: 370002)
+[PASS] testDifferentFoxBalancesCannotPoolForExchange() (gas: 588271)
+[PASS] testDisableReenableInvalidatesOutstandingPermit() (gas: 439582)
+[PASS] testExchangeConsumesDuplicatesAndKeepsOriginal() (gas: 530206)
+[PASS] testExchangeIsAtomicWhenOutputSupplyCapIsReached() (gas: 740517)
+[PASS] testExchangePermitIsInvalidatedByFoxSale() (gas: 471547)
+[PASS] testExpiredClaimFails() (gas: 23968)
+[PASS] testExpiredExchangePermitFails() (gas: 426575)
+[PASS] testFiniteSupplyCapCanTightenAfterMint() (gas: 241442)
+[PASS] testFiniteSupplyCapCannotIncreaseAfterMint() (gas: 233918)
+[PASS] testFoxBoundItemCannotLeaveBackpack() (gas: 261974)
+[PASS] testFrozenItemCannotChangeURIOrPolicy() (gas: 24979)
+[PASS] testMinimumRemainingCannotUndercutRecipeRetention() (gas: 428752)
+[PASS] testNormalWalletCanApproveOperatorAfterItemLeavesBackpack() (gas: 312022)
+[PASS] testOldOwnerCannotUsePermitAfterSale() (gas: 471602)
+[PASS] testParentFoxSafeTransferIntoOwnBackpackIsRejected() (gas: 134003)
+[PASS] testPausedClaimsBlocksClaim() (gas: 24711)
+[PASS] testPausedExchangeBlocksExchange() (gas: 425067)
+[PASS] testPausedItemsBlocksClaimMint() (gas: 174019)
+[PASS] testPermitMinimumRemainingProtectsPlacedQuantityAgainstBalanceChange() (gas: 499140)
+[PASS] testRecipeChangeInvalidatesOutstandingPermit() (gas: 441298)
+[PASS] testRecipeRejectsItemNotApprovedAsExchangeOutput() (gas: 27906)
+[PASS] testSignedRewardStillFollowsFoxAfterSale() (gas: 274357)
+[PASS] testTbaCannotCreatePersistentERC1155OperatorApproval() (gas: 266980)
+[PASS] testTransferPolicyCannotChangeAfterFirstMint() (gas: 233534)
+[PASS] testWrongClaimSignerFails() (gas: 30600)
+[PASS] testWrongExchangeSignerFails() (gas: 437146)
+[PASS] testZeroClaimIdFails() (gas: 22467)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 17.97ms (16.41ms CPU time)
+
+Ran 7 tests for test/FoxStylerFuzz.t.sol:FoxStylerFuzzTest
+[PASS] testFuzzBalancesAcrossFoxesNeverPool(uint8,uint8,bytes32) (runs: 512, μ: 591399, ~: 591345)
+[PASS] testFuzzClaimMintsExactAmount(uint96,bytes32) (runs: 512, μ: 234544, ~: 234482)
+[PASS] testFuzzClaimReplayNeverMintsTwice(uint96,bytes32) (runs: 512, μ: 247276, ~: 247214)
+[PASS] testFuzzExchangeAlwaysRetainsSignedMinimum(uint8,uint8,uint8,bytes32) (runs: 512, μ: 534639, ~: 534528)
+[PASS] testFuzzFormerOwnerCannotExecuteAfterFoxTransfer(address,bytes32) (runs: 512, μ: 276891, ~: 276891)
+[PASS] testFuzzFoxBoundItemCannotMoveIndependently(uint96,bytes32) (runs: 512, μ: 264778, ~: 264880)
+[PASS] testFuzzTradableItemCanMoveBetweenFoxes(uint96,bytes32) (runs: 512, μ: 351425, ~: 351527)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 280.69ms (1.81s CPU time)
+
+Ran 2 test suites in 284.43ms (298.65ms CPU time): 41 tests passed, 0 failed, 0 skipped (41 total tests)
+[5/6] High-run fuzz pass
+No files changed, compilation skipped
+
+Ran 34 tests for test/FoxStylerCore.t.sol:FoxStylerCoreTest
+[PASS] testBackpackAdvertisesERC721Receiver() (gas: 14105)
+[PASS] testBackpackControlMovesWithFox() (gas: 306647)
+[PASS] testBatchTransferContainingFoxBoundItemFails() (gas: 367297)
+[PASS] testClaimCreatesBackpackAndMintsToFox() (gas: 235823)
+[PASS] testClaimReplayFailsAcrossReplacementClaimsModule() (gas: 1752016)
+[PASS] testClaimReplayFailsGloballyInItems() (gas: 241716)
+[PASS] testCollectorCanMoveTradableItemBetweenTheirFoxes() (gas: 370002)
+[PASS] testDifferentFoxBalancesCannotPoolForExchange() (gas: 588271)
+[PASS] testDisableReenableInvalidatesOutstandingPermit() (gas: 439582)
+[PASS] testExchangeConsumesDuplicatesAndKeepsOriginal() (gas: 530206)
+[PASS] testExchangeIsAtomicWhenOutputSupplyCapIsReached() (gas: 740517)
+[PASS] testExchangePermitIsInvalidatedByFoxSale() (gas: 471547)
+[PASS] testExpiredClaimFails() (gas: 23968)
+[PASS] testExpiredExchangePermitFails() (gas: 426575)
+[PASS] testFiniteSupplyCapCanTightenAfterMint() (gas: 241442)
+[PASS] testFiniteSupplyCapCannotIncreaseAfterMint() (gas: 233918)
+[PASS] testFoxBoundItemCannotLeaveBackpack() (gas: 261974)
+[PASS] testFrozenItemCannotChangeURIOrPolicy() (gas: 24979)
+[PASS] testMinimumRemainingCannotUndercutRecipeRetention() (gas: 428752)
+[PASS] testNormalWalletCanApproveOperatorAfterItemLeavesBackpack() (gas: 312022)
+[PASS] testOldOwnerCannotUsePermitAfterSale() (gas: 471602)
+[PASS] testParentFoxSafeTransferIntoOwnBackpackIsRejected() (gas: 134003)
+[PASS] testPausedClaimsBlocksClaim() (gas: 24711)
+[PASS] testPausedExchangeBlocksExchange() (gas: 425067)
+[PASS] testPausedItemsBlocksClaimMint() (gas: 174019)
+[PASS] testPermitMinimumRemainingProtectsPlacedQuantityAgainstBalanceChange() (gas: 499140)
+[PASS] testRecipeChangeInvalidatesOutstandingPermit() (gas: 441298)
+[PASS] testRecipeRejectsItemNotApprovedAsExchangeOutput() (gas: 27906)
+[PASS] testSignedRewardStillFollowsFoxAfterSale() (gas: 274357)
+[PASS] testTbaCannotCreatePersistentERC1155OperatorApproval() (gas: 266980)
+[PASS] testTransferPolicyCannotChangeAfterFirstMint() (gas: 233534)
+[PASS] testWrongClaimSignerFails() (gas: 30600)
+[PASS] testWrongExchangeSignerFails() (gas: 437146)
+[PASS] testZeroClaimIdFails() (gas: 22467)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 4.05s (13.86ms CPU time)
+
+Ran 7 tests for test/FoxStylerFuzz.t.sol:FoxStylerFuzzTest
+[PASS] testFuzzBalancesAcrossFoxesNeverPool(uint8,uint8,bytes32) (runs: 10000, μ: 591371, ~: 591345)
+[PASS] testFuzzClaimMintsExactAmount(uint96,bytes32) (runs: 10000, μ: 234562, ~: 234887)
+[PASS] testFuzzClaimReplayNeverMintsTwice(uint96,bytes32) (runs: 10000, μ: 247294, ~: 247619)
+[PASS] testFuzzExchangeAlwaysRetainsSignedMinimum(uint8,uint8,uint8,bytes32) (runs: 10000, μ: 534688, ~: 534668)
+[PASS] testFuzzFormerOwnerCannotExecuteAfterFoxTransfer(address,bytes32) (runs: 10000, μ: 276891, ~: 276891)
+[PASS] testFuzzFoxBoundItemCannotMoveIndependently(uint96,bytes32) (runs: 10000, μ: 264780, ~: 264880)
+[PASS] testFuzzTradableItemCanMoveBetweenFoxes(uint96,bytes32) (runs: 10000, μ: 351427, ~: 351527)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 4.05s (24.74s CPU time)
+
+Ran 2 test suites in 4.05s (8.09s CPU time): 41 tests passed, 0 failed, 0 skipped (41 total tests)
+[6/6] Focused security paths
+No files changed, compilation skipped
+
+Ran 14 tests for test/FoxStylerCore.t.sol:FoxStylerCoreTest
+[PASS] testBatchTransferContainingFoxBoundItemFails() (gas: 367297)
+[PASS] testClaimReplayFailsAcrossReplacementClaimsModule() (gas: 1752016)
+[PASS] testClaimReplayFailsGloballyInItems() (gas: 241716)
+[PASS] testDifferentFoxBalancesCannotPoolForExchange() (gas: 588271)
+[PASS] testExchangeConsumesDuplicatesAndKeepsOriginal() (gas: 530206)
+[PASS] testExchangeIsAtomicWhenOutputSupplyCapIsReached() (gas: 740517)
+[PASS] testExchangePermitIsInvalidatedByFoxSale() (gas: 471547)
+[PASS] testExpiredExchangePermitFails() (gas: 426575)
+[PASS] testFoxBoundItemCannotLeaveBackpack() (gas: 261974)
+[PASS] testOldOwnerCannotUsePermitAfterSale() (gas: 471602)
+[PASS] testPausedExchangeBlocksExchange() (gas: 425067)
+[PASS] testRecipeRejectsItemNotApprovedAsExchangeOutput() (gas: 27906)
+[PASS] testTbaCannotCreatePersistentERC1155OperatorApproval() (gas: 266980)
+[PASS] testWrongExchangeSignerFails() (gas: 437146)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 4.47ms (9.85ms CPU time)
+
+Ran 4 tests for test/FoxStylerFuzz.t.sol:FoxStylerFuzzTest
+[PASS] testFuzzClaimReplayNeverMintsTwice(uint96,bytes32) (runs: 512, μ: 247299, ~: 247619)
+[PASS] testFuzzExchangeAlwaysRetainsSignedMinimum(uint8,uint8,uint8,bytes32) (runs: 512, μ: 534640, ~: 534668)
+[PASS] testFuzzFormerOwnerCannotExecuteAfterFoxTransfer(address,bytes32) (runs: 512, μ: 276891, ~: 276891)
+[PASS] testFuzzFoxBoundItemCannotMoveIndependently(uint96,bytes32) (runs: 512, μ: 264786, ~: 264880)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 144.22ms (568.48ms CPU time)
+
+Ran 2 test suites in 146.68ms (148.70ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)
+QUALITY GATE PASSED

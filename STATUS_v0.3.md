@@ -1,3 +1,5 @@
+> Historical v0.3 record. Current executed build/test status is in VALIDATION_v0.4.md.
+
 # Fox Styler Contracts v0.3 Status
 
 ## Completed in this package

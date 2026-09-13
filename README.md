@@ -1,8 +1,17 @@
-# Fox Styler Contracts v0.3
+# Fox Styler Contracts v0.4
 
 Compile/test candidate for the approved Fox Styler ownership architecture.
 
-**Status: pre-compile candidate. Static checks pass locally, but this ChatGPT runtime does not contain Foundry/solc and cannot download packages, so the Solidity build/test gate must still be executed on a Foundry-capable machine or CI before testnet. Not audited. Not deployed. Not mainnet-ready.**
+**Status: compiled and tested locally and in GitHub Actions with the pinned toolchain. 41 tests passed; seven fuzz tests passed 10,000 cases each. Not independently audited. Not deployed. Not mainnet-ready.**
+
+See [VALIDATION_v0.4.md](VALIDATION_v0.4.md) for exact results, fixes, warning review, contract sizes, and CI evidence.
+
+## What v0.4 changes
+
+Fixes the structural checker and Foundry test harness, applies forge formatting, and records executed validation. Production contract logic and the v0.3 ownership architecture are preserved.
+
+The next phase is Robinhood testnet preparation and chain registry verification. Historical v0.3 documents below describe the previous pre-compile state.
+
 
 ## What v0.3 adds
 
