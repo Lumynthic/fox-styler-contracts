@@ -45,9 +45,21 @@ contract DeployTestnetSandbox is Script {
         items.grantRole(items.PAUSER_ROLE(), deployer);
 
         // Arbitrary rehearsal economics, not approved gameplay balance.
-        items.registerItem(1001, "ipfs://test-only/bowl.json", IFoxStylerItems.TransferPolicy.Transferable, true, true, false, 0);
-        items.registerItem(5001, "ipfs://test-only/exchange-bowl.json", IFoxStylerItems.TransferPolicy.Transferable, false, false, true, 0);
-        items.registerItem(9001, "ipfs://test-only/relic.json", IFoxStylerItems.TransferPolicy.FoxBound, true, false, false, 0);
+        items.registerItem(
+            1001, "ipfs://test-only/bowl.json", IFoxStylerItems.TransferPolicy.Transferable, true, true, false, 0
+        );
+        items.registerItem(
+            5001,
+            "ipfs://test-only/exchange-bowl.json",
+            IFoxStylerItems.TransferPolicy.Transferable,
+            false,
+            false,
+            true,
+            0
+        );
+        items.registerItem(
+            9001, "ipfs://test-only/relic.json", IFoxStylerItems.TransferPolicy.FoxBound, true, false, false, 0
+        );
         exchange.configureRecipe(
             1,
             FoxExchange.Recipe({
