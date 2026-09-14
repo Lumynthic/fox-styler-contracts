@@ -1,0 +1,35 @@
+name: Robinhood Testnet Preflight
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/testnet-preflight.yml'
+permissions:
+  contents: read
+jobs:
+  registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Verify testnet chain and registry code (read only)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import datetime, json, urllib.request
+          url = "https://rpc.testnet.chain.robinhood.com"
+          registry = "0x000000006551c19487814612e58FE06813775758"
+          def rpc(method, params):
+              req = urllib.request.Request(url, data=json.dumps({"jsonrpc":"2.0","id":1,"method":method,"params":params}).encode(), headers={"Content-Type":"application/json"})
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  data = json.load(response)
+              if "error" in data:
+                  raise RuntimeError(data["error"])
+              return data["result"]
+          chain = int(rpc("eth_chainId", []), 16)
+          assert chain == 46630, f"Wrong chain: {chain}"
+          block = rpc("eth_blockNumber", [])
+          code = rpc("eth_getCode", [registry, block])
+          print(json.dumps({"checked_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"rpc":url,"chain_id":chain,"block":int(block,16),"registry":registry,"runtime_bytes":(len(code)-2)//2,"runtime_code":code}, indent=2))
+          assert code not in ("0x", "0x0", ""), "Canonical registry has no code. Deployment gate remains closed."
+          print("Chain ID and nonempty registry code confirmed. Bytecode identity and behavior remain to be verified.")
+          PY
